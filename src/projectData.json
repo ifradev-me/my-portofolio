@@ -1,0 +1,54 @@
+{
+    "projects":[
+        {
+            "image": "https://picsum.photos/200/300?1",
+            "name": "Project Dummy 1",
+            "description": "Lorem ipsum dolor sit amet, lorem lorem lorem."
+        },
+        {
+            "image": "https://picsum.photos/200/300?2",
+            "name": "Project Dummy 2",
+            "description": "Lorem ipsum si dolor amet lorem lorem lorem."
+        },
+        {
+            "image": "https://picsum.photos/200/300?3",
+            "name": "Project Dummy 3",
+            "description": "Dolor sit amet lorem ipsum lorem lorem."
+        },
+        {
+            "image": "https://picsum.photos/200/300?4",
+            "name": "Project Dummy 4",
+            "description": "Amet lorem ipsum dolor sit lorem lorem."
+        },
+        {
+            "image": "https://picsum.photos/200/300?5",
+            "name": "Project Dummy 5",
+            "description": "Ipsum dolor amet lorem lorem lorem lorem."
+        },
+        {
+            "image": "https://picsum.photos/200/300?6",
+            "name": "Project Dummy 6",
+            "description": "Lorem ipsum si dolor amet lorem lorem lorem."
+        },
+        {
+            "image": "https://picsum.photos/200/300?7",
+            "name": "Project Dummy 7",
+            "description": "Project description with lorem ipsum text."
+        },
+        {
+            "image": "https://picsum.photos/200/300?8",
+            "name": "Project Dummy 8",
+            "description": "Example project description for testing UI."
+        },
+        {
+            "image": "https://picsum.photos/200/300?9",
+            "name": "Project Dummy 9",
+            "description": "Random lorem ipsum text for sample content."
+        },
+        {
+            "image": "https://picsum.photos/200/300?10",
+            "name": "Project Dummy 10",
+            "description": "Dummy description for placeholder purposes."
+        }
+]
+}

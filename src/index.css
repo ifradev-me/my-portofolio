@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+/* 1. Definisikan variant dark berdasarkan class .dark di HTML */
+@custom-variant dark (&:where(.dark, .dark *));
+
+.dark {
+  --color-background-light: var(--color-background-dark);
+  --color-text-base: var(--color-text-light);
+  --color-text-soft: var(--color-text-light);
+}
+
+@layer utilities {
+  .li-offcanvas-nav {
+    @apply text-text-50 border-b border-background-50/20 px-2.5 py-4 text-lg flex items-center 
+  }
+}
+
+
+@theme {
+  /* Base */
+  --color-primary-blue: #1E3A8A;
+  --color-primary-purple: #7C3AED;
+  --color-primary-gold: #D4AF37;
+
+  --color-background-dark: #0F172A;
+  --color-background-light: #F9FAFB;
+  --color-background-highlight: #E9DFFB;
+
+  --color-accent-goldHover: #FCD34D;
+
+  --color-text-base: #0F172A;
+  --color-text-soft: #334155;
+  --color-text-light: #F9FAFB;
+  
+  --color-border-gold: #D4AF37;
+
+
+
+  /* Font */
+  --font-header: 'Playfair Display', georgia, serif;
+  --font-body: 'Inter', verdana, sans-serif;
+  
+  /* Primary Blue Scale */
+  --color-primary-blue-50: #EFF6FF;
+  --color-primary-blue-100: #DBEAFE;
+  --color-primary-blue-200: #BFDBFE;
+  --color-primary-blue-300: #93C5FD;
+  --color-primary-blue-400: #60A5FA;
+  --color-primary-blue-500: #3B82F6;
+  --color-primary-blue-600: #2563EB;
+  --color-primary-blue-700: #1D4ED8;
+  --color-primary-blue-800: #1E3A8A;
+  --color-primary-blue-900: #1E40AF;
+  --color-primary-blue-950: #172554;
+
+  
+  /* Primary Purple Scale */
+  --color-primary-purple-50: #FAF5FF;
+  --color-primary-purple-100: #F3E8FF;
+  --color-primary-purple-200: #E9D5FF;
+  --color-primary-purple-300: #D8B4FE;
+  --color-primary-purple-400: #C084FC;
+  --color-primary-purple-500: #A855F7;
+  --color-primary-purple-600: #9333EA;
+  --color-primary-purple-700: #7C3AED;
+  --color-primary-purple-800: #6B21A8;
+  --color-primary-purple-900: #581C87;
+  --color-primary-purple-950: #3B0764;
+  
+  /* Primary Gold Scale */
+  --color-primary-gold-50: #FFFBEB;
+  --color-primary-gold-100: #FEF3C7;
+  --color-primary-gold-200: #FDE68A;
+  --color-primary-gold-300: #FCD34D;
+  --color-primary-gold-400: #FBBF24;
+  --color-primary-gold-500: #F59E0B;
+  --color-primary-gold-600: #D97706;
+  --color-primary-gold-700: #B45309;
+  --color-primary-gold-800: #D4AF37;
+  --color-primary-gold-900: #78350F;
+  --color-primary-gold-950: #451A03;
+  
+  /* Background Scale */
+  --color-background-50: #F9FAFB;
+  --color-background-100: #F3F4F6;
+  --color-background-200: #E5E7EB;
+  --color-background-300: #D1D5DB;
+  --color-background-400: #9CA3AF;
+  --color-background-500: #6B7280;
+  --color-background-600: #4B5563;
+  --color-background-700: #374151;
+  --color-background-800: #1F2937;
+  --color-background-900: #111827;
+  --color-background-950: #0F172A;
+  
+  /* Accent Scale */
+  --color-accent-50: #FFFBEB;
+  --color-accent-100: #FEF3C7;
+  --color-accent-200: #FDE68A;
+  --color-accent-300: #FCD34D;
+  --color-accent-400: #FBBF24;
+  --color-accent-500: #F59E0B;
+  --color-accent-600: #D97706;
+  --color-accent-700: #B45309;
+  --color-accent-800: #92400E;
+  --color-accent-900: #78350F;
+  --color-accent-950: #451A03;
+  
+/* Highlight Purple Scale */
+  --color-highlight-50: #E9DFFB;
+  --color-highlight-100: #E9D5FF;
+  --color-highlight-200: #D8B4FE;
+  --color-highlight-300: #C084FC;
+  --color-highlight-400: #A855F7;
+  --color-highlight-500: #9333EA;
+  --color-highlight-600: #7C3AED;
+  --color-highlight-700: #6B21A8;
+  --color-highlight-800: #581C87;
+  --color-highlight-900: #4C1D95;
+  --color-highlight-950: #3B0764;
+  
+  /* Text Scale */
+  --color-text-50: #F9FAFB;
+  --color-text-100: #F3F4F6;
+  --color-text-200: #E5E7EB;
+  --color-text-300: #D1D5DB;
+  --color-text-400: #9CA3AF;
+  --color-text-500: #6B7280;
+  --color-text-600: #4B5563;
+  --color-text-700: #334155;
+  --color-text-800: #1F2937;
+  --color-text-900: #111827;
+  --color-text-950: #0F172A;
+  
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
