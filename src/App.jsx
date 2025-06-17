@@ -5,6 +5,8 @@ import HeroSection from './HeroSec'
 import { useState } from 'react'
 import ProjectSection from './projectSec'
 import SectionWrapper from './secWrap'
+import LayananSection from './layananSec'
+import WhatsAppFloatingButton from './waButton'
 
 function App() {
   const [isSecondPage, setSecondPage] = useState(false)
@@ -16,15 +18,18 @@ function App() {
 
   return (
     <>
+    
     <Navbar/>
-    <SectionWrapper>
+    <SectionWrapper classList="bg-gradient-to-b from-highlight-800 to-primary-blue-950 via-highlight-950">
       <HeroSection/>
       <ProjectSection/>
     </SectionWrapper>
+    <LayananSection />
+
      <button onClick={handleToggle} className="p-2">
         <Togglebutton isToggled={isSecondPage} />
       </button>
-    
+    <WhatsAppFloatingButton/>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae nam rem nulla illo expedita maxime omnis nemo mollitia cum voluptate eaque modi architecto explicabo a, repellat possimus! Minima sequi facere et perspiciatis totam? Quidem odit illo corporis animi suscipit voluptate doloribus laudantium odio earum, nemo reprehenderit nulla eligendi porro soluta qui debitis. Reprasehenderit, earum rerum. Repellendus recusandae sapiente delectus ipsa adipisci nostrum, et corporis suscipit distinctio, ullam doloremque facere unde sit praesentium aperiam. Laudantium molestiae vitae qui facere sunt repellendus distinctio accusantium deserunt? Esse eaque vitae magni tenetur doloremque at architecto suscipit totam necessitatibus, iure eveniet, impedit quae repellendus quaerat? Nostrum quisquam repudiandae voluptatibus deleniti ex recusandae dolor porro delectus! Fugiat facere quis ex culpa omnis, esse debitis enim velit ratione aliquam porro. Officiis delectus voluptatibus tempore magni minus, quis reprehenderit dolore quas iusto, eligendi doloribus harum ullam suscipit itaque dolores tenetur esse debitis perspiciatis, ut et dolor! Unde quos est nemo molestias non maxime quidem similique harum cum reiciendis nulla sequi qui adipisci, vel quam consectetur facere. Aliquam id repellat commodi tempora quo blanditiis tenetur, libero quis ut non autem itaque earum fuga alias eveniet error qui modi. Adipisci, animi a? Soluta commodi fugit reiciendis facilis cum itaque voluptatum!</p>
        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae nam rem nulla illo expedita maxime omnis nemo mollitia cum voluptate eaque modi architecto explicabo a, repellat possimus! Minima sequi facere et perspiciatis totam? Quidem odit illo corporis animi suscipit voluptate doloribus laudantium odio earum, nemo reprehenderit nulla eligendi porro soluta qui debitis. Reprehenderit, earum rerum. Repellendus recusandae sapiente delectus ipsa adipisci nostrum, et corporis suscipit distinctio, ullam doloremque facere unde sit praesentium aperiam. Laudantium molestiae vitae qui facere sunt repellendus distinctio accusantium deserunt? Esse eaque vitae magni tenetur doloremque at architecto suscipit totam necessitatibus, iure eveniet, impedit quae repellendus quaerat? Nostrum quisquam repudiandae voluptatibus deleniti ex recusandae dolor porro delectus! Fugiat facere quis ex culpa omnis, esse debitis enim velit ratione aliquam porro. Officiis delectus voluptatibus tempore magni minus, quis reprehenderit dolore quas iusto, eligendi doloribus harum ullam suscipit itaque dolores tenetur esse debitis perspiciatis, ut et dolor! Unde quos est nemo molestias non maxime quidem similique harum cum reiciendis nulla sequi qui adipisci, vel quam consectetur facere. Aliquam id repellat commodi tempora quo blanditiis tenetur, libero quis ut non autem itaque earum fuga alias eveniet error qui modi. Adipisci, animi a? Soluta commodi fugit reiciendis facilis cum itaque voluptatum!</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae nam rem nulla illo expedita maxime omnis nemo mollitia cum voluptate eaque modi architecto explicabo a, repellat possimus! Minima sequi facere et perspiciatis totam? Quidem odit illo corporis animi suscipit voluptate doloribus laudantium odio earum, nemo reprehenderit nulla eligendi porro soluta qui debitis. Reprehenderit, earum rerum. Repellendus recusandae sapiente delectus ipsa adipisci nostrum, et corporis suscipit distinctio, ullam doloremque facere unde sit praesentium aperiam. Laudantium molestiae vitae qui facere sunt repellendus distinctio accusantium deserunt? Esse eaque vitae magni tenetur doloremque at architecto suscipit totam necessitatibus, iure eveniet, impedit quae repellendus quaerat? Nostrum quisquam repudiandae voluptatibus deleniti ex recusandae dolor porro delectus! Fugiat facere quis ex culpa omnis, esse debitis enim velit ratione aliquam porro. Officiis delectus voluptatibus tempore magni minus, quis reprehenderit dolore quas iusto, eligendi doloribus harum ullam suscipit itaque dolores tenetur esse debitis perspiciatis, ut et dolor! Unde quos est nemo molestias non maxime quidem similique harum cum reiciendis nulla sequi qui adipisci, vel quam consectetur facere. Aliquam id repellat commodi tempora quo blanditiis tenetur, libero quis ut non autem itaque earum fuga alias eveniet error qui modi. Adipisci, animi a? Soluta commodi fugit reiciendis facilis cum itaque voluptatum!</p>
