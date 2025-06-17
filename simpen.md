@@ -1,5 +1,3 @@
-# HIMATEKTRO-USK
- 
  
 # Panduan Conventional Commits
 

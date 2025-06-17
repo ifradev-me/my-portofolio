@@ -20,3 +20,5 @@ All notable changes to this project will be documented in this file. See [standa
 * perbaiki hero section ([3419b2f](https://github.com/ifradev-me/my-portofolio/commit/3419b2f74d7106aa7265b0c82232d7f015a414fe))
 
 ### 0.0.1 (2025-06-16)
+
+* init release
