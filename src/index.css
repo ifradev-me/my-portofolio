@@ -142,3 +142,25 @@
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
 }
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) skewX(-12deg);
+  }
+  100% {
+    transform: translateX(200%) skewX(-12deg);
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.10);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 0.87s infinite;
+}
