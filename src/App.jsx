@@ -1,7 +1,7 @@
 import './App.css'
 import Navbar from"./navbar"
 import Togglebutton from './component/toggleButton'
-import HeroSection from './HeroSec'
+import HeroSection from './heroSec'
 import { useState, useEffect, useRef } from 'react'
 import ProjectSection from './projectSec'
 import SectionWrapper from './component/secWrap'
