@@ -1,9 +1,9 @@
-import {ProjectsIcon, ContactIcon, HomeIcon, BurgerIcon, AboutIcon, SkillsIcon, BlogIcon, TestimonialIcon } from './component/Icon.jsx'
+import {ProjectsIcon, ContactIcon, HomeIcon, BurgerIcon, AboutIcon, SkillsIcon, BlogIcon, TestimonialIcon, LampIcon } from './component/Icon.jsx'
 import { useState, useEffect } from 'react' 
 import Togglebutton from './component/toggleButton.jsx'
 
 
-const Navbar = () => {
+const Navbar = (whereActive) => {
     const [isSecondPage, setSecondPage] = useState(false)
     const [isMobile, setIsMobile] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
@@ -31,7 +31,7 @@ const Navbar = () => {
 
     useEffect(() => {
         if (isOpen) {
-            const timer = setTimeout(() => setIsOpen(false), 5000);
+            const timer = setTimeout(() => setIsOpen(false), 15000);
             return () => clearTimeout(timer);
         }
     }, [isOpen]);
@@ -52,38 +52,51 @@ const Navbar = () => {
     if (isMobile) {
         return (
             <>
-            <nav className={`${isOpen ? 'translate-x-0' : 'translate-x-[100%]'} transform transition-transform duration-300 ease-in-out fixed bottom-[-1px] right-[-1px] h-auto z-20 w-18 p-0 text-text-100 rounded-tl-3xl bg-background-900/40 pt-2`}>
+            <nav className={`${isOpen ? 'translate-x-0' : 'translate-x-[100%]'} transform transition-transform duration-300 ease-in-out fixed bottom-[-1px] right-[-1px] h-auto z-20 w-18 p-0 text-text-100 rounded-tl-3xl bg-background-900/70 pt-2`}>
                 <div className="flex flex-col justify-center space-y-4 text-center pb-2">
                     <button onClick={handleToggle} className="p-2">
                         <Togglebutton isToggled={isSecondPage} />
                     </button>
                     
-                    <ul className={`${isSecondPage ? 'hidden' : 'flex'} flex-col space-y-4`}> 
-                        <li>
-                            <a href="#" className="flex flex-col items-center text-xs p-1">
+                    <ul className={`${isSecondPage ? 'hidden' : 'flex'} flex-col space-y-4 mb-4`}>
+                         <li>
+                            <a href="#home" className="flex flex-col items-center text-xs p-1">
                                 <HomeIcon className="w-6 h-6 mb-1" />
                                 Home
                             </a>
+                        </li> 
+                        <li>
+                            <a href="#about" className="flex flex-col items-center text-xs p-1">
+                                <AboutIcon className="w-6 h-6 mb-1" />
+                                About me
+                            </a>
                         </li>
                         <li>
-                            <a href="#" className="flex flex-col items-center text-xs p-1">
+                            <a href="#project" className="flex flex-col items-center text-xs p-1">
                                 <ProjectsIcon className="w-6 h-6 mb-1" />
                                 Project
                             </a>
                         </li>
                         <li>
-                            <a href="#" className="flex flex-col items-center text-xs p-1">
+                            <a href="#layanan" className="flex flex-col items-center text-xs p-1">
                                 <SkillsIcon className="w-6 h-6 mb-1" />
                                 Layanan
                             </a>
-                        </li>        
+                        </li>  
+                              
                     </ul>
                     
-                    <ul className={`${isSecondPage ? 'flex' : 'hidden'} flex-col space-y-4`}>
+                    <ul className={`${isSecondPage ? 'flex' : 'hidden'} flex-col space-y-4 mb-4`}>
                         <li>
-                            <a href="#" className="flex flex-col items-center text-xs p-1">
-                                <AboutIcon className="w-6 h-6 mb-1" />
-                                About
+                             <a href="#kontak" className="flex flex-col items-center text-xs p-1">
+                                <ContactIcon className="w-6 h-6 mb-1" />
+                                Kontak
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" className="flex flex-col items-center text-sm p-1">
+                                <LampIcon className="w-6 h-6 mb-1" />
+                                skill
                             </a>
                         </li>
                         <li>
@@ -98,12 +111,7 @@ const Navbar = () => {
                                 Blog
                             </a>
                         </li>
-                        <li>
-                             <a href="#" className="flex flex-col items-center text-xs p-1">
-                                <ContactIcon className="w-6 h-6 mb-1" />
-                                Kontak
-                            </a>
-                        </li>
+                        
                     </ul>
                 </div>
             </nav>
