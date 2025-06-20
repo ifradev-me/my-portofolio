@@ -71,5 +71,5 @@ const WhatsAppFloatingButton = ({
   );
 };
 
-export { WhatsAppCardButton };
-export default WhatsAppFloatingButton
+
+export { WhatsAppCardButton, WhatsAppFloatingButton };
