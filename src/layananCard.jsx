@@ -13,23 +13,29 @@ const LayananCard = ({
     const handleLike = () => setLike(!like)
 
     return (
-        <div className="flex-1 bg-background-300/30 rounded-2xl shadow-md px-4 pt-2 pb-0 space-y-4 border-2 border-white min-h-0"> 
-            <div className="flex gap-4">
+        <div className="w-full max-w-sm bg-background-300/30 rounded-2xl shadow-md px-4 pt-2 pb-4 space-y-4 border-2 border-white h-fit"> 
+            <div className="flex gap-3 sm:gap-4">
                 <img 
                     src={img} 
                     alt="service" 
-                    className="rounded-lg w-20 h-20 object-cover flex-shrink-0"
+                    className="rounded-lg w-16 h-16 sm:w-20 sm:h-20 object-cover flex-shrink-0"
                 />
                 <div className="flex-1 min-w-0">
-                    <span className="text-sm text-gray-600 font-medium font-body">+{userTotal} happy clients</span>
-                    <h3 className="text-text-900 font-header text-lg sm:text-xl font-bold truncate">{title}</h3>
-                    <p className="text-sm text-gray-700 line-clamp-3 overflow-hidden">{description}</p>
+                    <span className="text-xs sm:text-sm text-gray-600 font-medium font-body">+{userTotal} happy clients</span>
+                    <h3 className="text-text-900 font-header text-base sm:text-lg lg:text-xl font-bold truncate">{title}</h3>
+                    <p className="text-xs sm:text-sm lg:text-base text-gray-700 line-clamp-2 sm:line-clamp-3 overflow-hidden leading-tight">{description}</p>
                 </div>
             </div>
-            <div className="flex gap-3">
-                <button onClick={handleLike}><HeartIcon className={`w-8 h-8 p-1 m-1  rounded-full font-sm text-red-900 transition-all duration-300 active:fill-red-900 active:scale-130 ${like ? 'fill-red-700' : ''}`}/></button>
-                <button><TestimonialIcon className="w-8 h-8 p-1 m-1 bg-background-900 rounded-full border-1 font-sm text-white border-blue-700"/></button>
-                <button><WhatsAppCardButton /></button>
+            <div className="flex gap-2 sm:gap-3">
+                <button onClick={handleLike} className="flex-shrink-0">
+                    <HeartIcon className={`w-7 h-7 sm:w-8 sm:h-8 p-1 rounded-full transition-all duration-300 active:scale-110 ${like ? 'fill-red-700 text-red-700' : 'text-red-900'}`}/>
+                </button>
+                <button className="flex-shrink-0">
+                    <TestimonialIcon className="w-7 h-7 sm:w-8 sm:h-8 p-1 bg-background-900 rounded-full border font-sm text-white border-blue-700"/>
+                </button>
+                <button className="flex-shrink-0">
+                    <WhatsAppCardButton />
+                </button>
             </div>
         </div>
     )
