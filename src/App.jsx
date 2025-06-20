@@ -2,39 +2,117 @@ import './App.css'
 import Navbar from"./navbar"
 import Togglebutton from './component/toggleButton'
 import HeroSection from './HeroSec'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import ProjectSection from './projectSec'
-import SectionWrapper from './secWrap'
+import SectionWrapper from './component/secWrap'
 import LayananSection from './layananSec'
-import WhatsAppFloatingButton from './waButton'
+import {WhatsAppFloatingButton} from './waButton'
+import { LampIcon } from './component/Icon'
+import AboutMeSection from './aboutMeSec'
+import KontakSection from './kontakSec'
+import Footer from './footer'
 
 function App() {
-  const [isSecondPage, setSecondPage] = useState(false)
+  const [activeSection, setActiveSection] = useState(1)
+  const sectionRefs = useRef([])
+  const mainRef = useRef(null)
 
-  const handleToggle = () => {
-        
-        setSecondPage(!isSecondPage)     
+  const addToRefs = (el, index) => {
+    if (el) {
+      sectionRefs.current[index] = el
     }
+  }
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        let mostVisible = null
+        let maxRatio = 0
+
+        entries.forEach(entry => {
+          if (entry.intersectionRatio > maxRatio) {
+            maxRatio = entry.intersectionRatio
+            mostVisible = entry.target
+          }
+        })
+
+        if (mostVisible) {
+          const index = sectionRefs.current.findIndex(ref => ref === mostVisible)
+          if (index !== -1) {
+            setActiveSection(index + 1)
+          }
+        }
+      },
+      {
+        root: mainRef.current,
+        threshold: [0, 0.25, 0.5, 0.75, 1],
+        rootMargin: '0px'
+      }
+    )
+
+    sectionRefs.current.forEach(ref => {
+      if (ref) observer.observe(ref)
+    })
+
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <>
-    
-    <Navbar/>
-    <SectionWrapper classList="bg-gradient-to-b from-highlight-800 to-primary-blue-950 via-highlight-950">
-      <HeroSection/>
-      <ProjectSection/>
-    </SectionWrapper>
-    <LayananSection />
-
-     <button onClick={handleToggle} className="p-2">
-        <Togglebutton isToggled={isSecondPage} />
-      </button>
-    <WhatsAppFloatingButton/>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae nam rem nulla illo expedita maxime omnis nemo mollitia cum voluptate eaque modi architecto explicabo a, repellat possimus! Minima sequi facere et perspiciatis totam? Quidem odit illo corporis animi suscipit voluptate doloribus laudantium odio earum, nemo reprehenderit nulla eligendi porro soluta qui debitis. Reprasehenderit, earum rerum. Repellendus recusandae sapiente delectus ipsa adipisci nostrum, et corporis suscipit distinctio, ullam doloremque facere unde sit praesentium aperiam. Laudantium molestiae vitae qui facere sunt repellendus distinctio accusantium deserunt? Esse eaque vitae magni tenetur doloremque at architecto suscipit totam necessitatibus, iure eveniet, impedit quae repellendus quaerat? Nostrum quisquam repudiandae voluptatibus deleniti ex recusandae dolor porro delectus! Fugiat facere quis ex culpa omnis, esse debitis enim velit ratione aliquam porro. Officiis delectus voluptatibus tempore magni minus, quis reprehenderit dolore quas iusto, eligendi doloribus harum ullam suscipit itaque dolores tenetur esse debitis perspiciatis, ut et dolor! Unde quos est nemo molestias non maxime quidem similique harum cum reiciendis nulla sequi qui adipisci, vel quam consectetur facere. Aliquam id repellat commodi tempora quo blanditiis tenetur, libero quis ut non autem itaque earum fuga alias eveniet error qui modi. Adipisci, animi a? Soluta commodi fugit reiciendis facilis cum itaque voluptatum!</p>
-       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae nam rem nulla illo expedita maxime omnis nemo mollitia cum voluptate eaque modi architecto explicabo a, repellat possimus! Minima sequi facere et perspiciatis totam? Quidem odit illo corporis animi suscipit voluptate doloribus laudantium odio earum, nemo reprehenderit nulla eligendi porro soluta qui debitis. Reprehenderit, earum rerum. Repellendus recusandae sapiente delectus ipsa adipisci nostrum, et corporis suscipit distinctio, ullam doloremque facere unde sit praesentium aperiam. Laudantium molestiae vitae qui facere sunt repellendus distinctio accusantium deserunt? Esse eaque vitae magni tenetur doloremque at architecto suscipit totam necessitatibus, iure eveniet, impedit quae repellendus quaerat? Nostrum quisquam repudiandae voluptatibus deleniti ex recusandae dolor porro delectus! Fugiat facere quis ex culpa omnis, esse debitis enim velit ratione aliquam porro. Officiis delectus voluptatibus tempore magni minus, quis reprehenderit dolore quas iusto, eligendi doloribus harum ullam suscipit itaque dolores tenetur esse debitis perspiciatis, ut et dolor! Unde quos est nemo molestias non maxime quidem similique harum cum reiciendis nulla sequi qui adipisci, vel quam consectetur facere. Aliquam id repellat commodi tempora quo blanditiis tenetur, libero quis ut non autem itaque earum fuga alias eveniet error qui modi. Adipisci, animi a? Soluta commodi fugit reiciendis facilis cum itaque voluptatum!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae nam rem nulla illo expedita maxime omnis nemo mollitia cum voluptate eaque modi architecto explicabo a, repellat possimus! Minima sequi facere et perspiciatis totam? Quidem odit illo corporis animi suscipit voluptate doloribus laudantium odio earum, nemo reprehenderit nulla eligendi porro soluta qui debitis. Reprehenderit, earum rerum. Repellendus recusandae sapiente delectus ipsa adipisci nostrum, et corporis suscipit distinctio, ullam doloremque facere unde sit praesentium aperiam. Laudantium molestiae vitae qui facere sunt repellendus distinctio accusantium deserunt? Esse eaque vitae magni tenetur doloremque at architecto suscipit totam necessitatibus, iure eveniet, impedit quae repellendus quaerat? Nostrum quisquam repudiandae voluptatibus deleniti ex recusandae dolor porro delectus! Fugiat facere quis ex culpa omnis, esse debitis enim velit ratione aliquam porro. Officiis delectus voluptatibus tempore magni minus, quis reprehenderit dolore quas iusto, eligendi doloribus harum ullam suscipit itaque dolores tenetur esse debitis perspiciatis, ut et dolor! Unde quos est nemo molestias non maxime quidem similique harum cum reiciendis nulla sequi qui adipisci, vel quam consectetur facere. Aliquam id repellat commodi tempora quo blanditiis tenetur, libero quis ut non autem itaque earum fuga alias eveniet error qui modi. Adipisci, animi a? Soluta commodi fugit reiciendis facilis cum itaque voluptatum!</p>
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae nam rem nulla illo expedita maxime omnis nemo mollitia cum voluptate eaque modi architecto explicabo a, repellat possimus! Minima sequi facere et perspiciatis totam? Quidem odit illo corporis animi suscipit voluptate doloribus laudantium odio earum, nemo reprehenderit nulla eligendi porro soluta qui debitis. Reprehenderit, earum rerum. Repellendus recusandae sapiente delectus ipsa adipisci nostrum, et corporis suscipit distinctio, ullam doloremque facere unde sit praesentium aperiam. Laudantium molestiae vitae qui facere sunt repellendus distinctio accusantium deserunt? Esse eaque vitae magni tenetur doloremque at architecto suscipit totam necessitatibus, iure eveniet, impedit quae repellendus quaerat? Nostrum quisquam repudiandae voluptatibus deleniti ex recusandae dolor porro delectus! Fugiat facere quis ex culpa omnis, esse debitis enim velit ratione aliquam porro. Officiis delectus voluptatibus tempore magni minus, quis reprehenderit dolore quas iusto, eligendi doloribus harum ullam suscipit itaque dolores tenetur esse debitis perspiciatis, ut et dolor! Unde quos est nemo molestias non maxime quidem similique harum cum reiciendis nulla sequi qui adipisci, vel quam consectetur facere. Aliquam id repellat commodi tempora quo blanditiis tenetur, libero quis ut non autem itaque earum fuga alias eveniet error qui modi. Adipisci, animi a? Soluta commodi fugit reiciendis facilis cum itaque voluptatum!</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae nam rem nulla illo expedita maxime omnis nemo mollitia cum voluptate eaque modi architecto explicabo a, repellat possimus! Minima sequi facere et perspiciatis totam? Quidem odit illo corporis animi suscipit voluptate doloribus laudantium odio earum, nemo reprehenderit nulla eligendi porro soluta qui debitis. Reprehenderit, earum rerum. Repellendus recusandae sapiente delectus ipsa adipisci nostrum, et corporis suscipit distinctio, ullam doloremque facere unde sit praesentium aperiam. Laudantium molestiae vitae qui facere sunt repellendus distinctio accusantium deserunt? Esse eaque vitae magni tenetur doloremque at architecto suscipit totam necessitatibus, iure eveniet, impedit quae repellendus quaerat? Nostrum quisquam repudiandae voluptatibus deleniti ex recusandae dolor porro delectus! Fugiat facere quis ex culpa omnis, esse debitis enim velit ratione aliquam porro. Officiis delectus voluptatibus tempore magni minus, quis reprehenderit dolore quas iusto, eligendi doloribus harum ullam suscipit itaque dolores tenetur esse debitis perspiciatis, ut et dolor! Unde quos est nemo molestias non maxime quidem similique harum cum reiciendis nulla sequi qui adipisci, vel quam consectetur facere. Aliquam id repellat commodi tempora quo blanditiis tenetur, libero quis ut non autem itaque earum fuga alias eveniet error qui modi. Adipisci, animi a? Soluta commodi fugit reiciendis facilis cum itaque voluptatum!</p>
+      <Navbar whereActive={activeSection}/>
+      <div className="fixed top-4 right-4 bg-white px-4 py-2 shadow rounded z-50">
+        Section aktif: {activeSection}
+      </div>
+      <main 
+        ref={mainRef}
+        className='h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth'
+      >
+        <SectionWrapper classList="bg-gradient-to-b from-highlight-700 to-primary-blue-950 via-primary-purple-950">
+          <div 
+            ref={(el) => addToRefs(el, 0)} 
+            className="snap-start"
+            id="home"
+          >
+            <HeroSection />
+          </div>
+          <div 
+            ref={(el) => addToRefs(el, 1)} 
+            className="snap-start"
+            id='about'
+          >
+            <AboutMeSection />
+          </div>
+          <div 
+            ref={(el) => addToRefs(el, 2)} 
+            className="snap-start"
+            id='project'
+          >
+            <ProjectSection />
+          </div>
+        </SectionWrapper>
+        
+        <SectionWrapper classList="bg-gradient-to-l from-background-500/60 via-background-300 to-background-50">
+          <div 
+            ref={(el) => addToRefs(el, 3)} 
+            className="snap-start"
+            id='layanan'
+          >
+            <LayananSection />
+          </div>
+          <div 
+            ref={(el) => addToRefs(el, 4)} 
+            className="snap-start"
+            id='kontak'
+          >
+            <KontakSection />
+          </div>
+        </SectionWrapper>
+<section className="snap-end">
+  <Footer />
+</section>
+      </main>
+      
+      <WhatsAppFloatingButton/>
     </>
   )
 }
