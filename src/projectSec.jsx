@@ -14,7 +14,7 @@ const ProjectSection = () => {
             views: '± 10'
         },*/
         { 
-            image: '/botAbsens.png', 
+            image: '/botAbsen.png', 
             name: 'bot absensi otomatis', 
             description: 'Bot absensi otomatis dengan integrasi dengan sistem notifikasi absensi lewat whatsapp',
             techStack: ['express', 'MongoDB', 'Puppeteer', "baileys js"],
