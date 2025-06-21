@@ -14,7 +14,7 @@ const ProjectSection = () => {
             views: '± 10'
         },*/
         { 
-            image: '/public/botAbsensi.png', 
+            image: '/botAbsensi.png', 
             name: 'bot absensi otomatis', 
             description: 'Bot absensi otomatis dengan integrasi dengan sistem notifikasi absensi lewat whatsapp',
             techStack: ['express', 'MongoDB', 'Puppeteer', "baileys js"],
@@ -24,7 +24,7 @@ const ProjectSection = () => {
             views: '± 112'
         },
         { 
-            image: '/public/IoT.png', 
+            image: '/IoT.png', 
             name: 'IoT Dashboard', 
             description: 'Website IoT dashboard dengan visual yang interaktif dan memukau',
             techStack: ['React', 'python', 'USK API', 'sqlite3', 'flask', 'axios', 'fastAPI'],
@@ -33,7 +33,7 @@ const ProjectSection = () => {
             views: 'under 50'
         },
         { 
-            image: '/public/sii.png', 
+            image: '/sii.png', 
             name: 'Islamic event Landing Page', 
             description: 'landing page islami dengan album dan testimoni event',
             techStack: ['bootstrap', 'Google Cloud Api', 'app script', 'vercel'],

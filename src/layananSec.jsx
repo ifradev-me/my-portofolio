@@ -7,14 +7,14 @@ const LayananSection = () => {
         {
             id: 1,
             userTotal,
-            img: "./public/webdev.png",
+            img: "/webdev.png",
             title: "jasa pembuatan website",
             description: "Website profesional, dan mudah dikelola bahkan tanpa pengalaman teknis. Ifrad Dev tidak hanya membangun, tapi juga membuatmu paham cara memanfaatkannya."
         },
         {
             id: 2,
             userTotal,
-            img: "./public/automation.jpeg",
+            img: "/automation.jpeg",
             title: "jasa otomatisasi cs",
             description: "Bot kami membantu UMKM meningkatkan pelayanan tanpa nambah karyawan, dengan fitur auto-reply, pencatatan pesanan, dan pengingat otomatis yang mudah digunakan dan langsung siap pakai."
         }
