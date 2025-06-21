@@ -31,7 +31,7 @@ const HeroSection = () => {
                 className="w-full mb-4 max-w-sm sm:max-w-md md:max-w-lg mb- h-auto object-cover rounded-lg z-[1] relative left-[20%] sm:left-[26%] object-right self-right" 
             />
             
-            <p className="text-lg sm:text-base text-left font-body mt-2 sm:mt-4 md:mt-6 z-[1] leading-relaxed">
+            <p className="text-lg sm:text-base text-white text-left font-body mt-2 sm:mt-4 md:mt-6 z-[1] leading-relaxed">
                 Bangun websitemu & sistem otomatisasi WhatsApp untuk penjualan yang cepat, mudah, dan terukur.
             </p>
             
@@ -50,23 +50,23 @@ const HeroSection = () => {
                                     Aku <span className="text-yellow-400">Ifrad</span>
                                 </h1>
                                 
-                                <p className="text-xl xl:text-2xl text-white/90 font-header font-light">
+                                <p className="text-xl xl:text-2xl text-white/90 font-bold font-header ">
                                     Front-End Developer & WhatsApp Automation Builder
                                 </p>
                                 
-                                <p className="text-lg xl:text-xl text-white/70 font-body leading-relaxed max-w-xl">
+                                <p className="text-lg xl:text-xl text-white font-light font-body leading-relaxed max-w-xl">
                                     Bangun websitemu & sistem otomatisasi WhatsApp untuk penjualan yang cepat, mudah, dan terukur.
                                 </p>
                             </div>
                             
                             {/* 3. Single Strong CTA */}
-                            <div className="pt-4 relative">
-                               <button className="relative px-12 py-5 bg-background-800 text-white rounded-full font-semibold text-lg hover:bg-green-950 transition-all transform hover:scale-105 shadow-2xl group overflow-hidden">
-    💬 Mulai Konsultasi Gratis
-    <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-green-950 to-green-500 group-hover:w-full transition-all duration-300"></div>
-    <div className="absolute top-1/2 right-4 transform -translate-y-1/2 w-0 h-0 border-y-[8px] border-l-[12px] border-y-transparent border-l-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-</button>
-                            </div>
+                            <a className="pt-4 relative" href='https://wa.me/6282260740023'>
+                               <button className="relative px-12 py-5 bg-background-800 text-white rounded-full font-semibold text-lg hover:bg-green-950 transition-all transform hover:scale-105 shadow-2xl group overflow-hidden" >
+                                    💬 Mulai Konsultasi Gratis
+                                    <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-green-950 to-green-500 group-hover:w-full transition-all duration-300"></div>
+                                    <div className="absolute top-1/2 right-4 transform -translate-y-1/2 w-0 h-0 border-y-[8px] border-l-[12px] border-y-transparent border-l-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                </button>
+                            </a>
                         </div>
                         
                         {/* 2. Hero Image - Clean */}

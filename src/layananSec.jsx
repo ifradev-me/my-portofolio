@@ -7,16 +7,16 @@ const LayananSection = () => {
         {
             id: 1,
             userTotal,
-            img: "https://picsum.photos/200/300",
-            title: "Web Development",
-            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+            img: "./public/webdev.png",
+            title: "jasa pembuatan website",
+            description: "Website profesional, dan mudah dikelola bahkan tanpa pengalaman teknis. Ifrad Dev tidak hanya membangun, tapi juga membuatmu paham cara memanfaatkannya."
         },
         {
             id: 2,
             userTotal,
-            img: "https://picsum.photos/200/300",
-            title: "Mobile Development",
-            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. tetur adipisicing elit tetur adipisicing elit tetur adipisicing elit tetur adipisicing elit tetur adipisicing elit tetur adipisicing elit"
+            img: "./public/automation.jpeg",
+            title: "jasa otomatisasi cs",
+            description: "Bot kami membantu UMKM meningkatkan pelayanan tanpa nambah karyawan, dengan fitur auto-reply, pencatatan pesanan, dan pengingat otomatis yang mudah digunakan dan langsung siap pakai."
         }
     ]
 
@@ -29,7 +29,7 @@ const LayananSection = () => {
                         <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-blue to-primary-purple-900">Layanan</span> Kami 
                     </h2>
                     <p className="text-text-900 text-lg sm:text-xl font-body max-w-2xl mx-auto leading-relaxed">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptas eum, labore unde ratione tempora sit reprehenderit eveniet hic dolorem!
+                        Ifrad Dev menawarkan layanan pembuatan website dan otomatisasi bisnis yang simpel, efektif, dan langsung bisa dipakai. Fokus kami: bantu UMKM naik level tanpa bikin pusing.
                     </p> 
                 </div>
 

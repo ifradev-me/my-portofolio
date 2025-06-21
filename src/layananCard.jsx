@@ -21,9 +21,11 @@ const LayananCard = ({
                     className="rounded-lg w-16 h-16 sm:w-20 sm:h-20 object-cover flex-shrink-0"
                 />
                 <div className="flex-1 min-w-0">
-                    <span className="text-xs sm:text-sm text-gray-600 font-medium font-body">+{userTotal} happy clients</span>
+                    <span className="text-xs sm:text-sm text-gray-600 font-medium font-body">+{userTotal} pengguna kami
+
+                    </span>
                     <h3 className="text-text-900 font-header text-base sm:text-lg lg:text-xl font-bold truncate">{title}</h3>
-                    <p className="text-xs sm:text-sm lg:text-base text-gray-700 line-clamp-2 sm:line-clamp-3 overflow-hidden leading-tight">{description}</p>
+                    <p className="text-xs sm:text-sm lg:text-base text-gray-700 line-clamp-5 sm:line-clamp-6 overflow-hidden leading-tight">{description}</p>
                 </div>
             </div>
             <div className="flex gap-2 sm:gap-3">

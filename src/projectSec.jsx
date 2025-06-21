@@ -3,65 +3,54 @@ import { useState, useEffect, useRef } from "react"
 
 const ProjectSection = () => {
     const projectList = [
-        { 
+        /*{ 
             image: 'https://picsum.photos/200/300', 
             name: 'E-Commerce Website', 
-            description: 'Full-stack e-commerce platform with payment integration, user authentication, and admin dashboard',
-            techStack: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+            description: 'Full-stack e-commerce platform dengan pembayaran terintegrasi, autentifikasi dan admin dashboard',
+            techStack: ['React', 'Node.js', 'MongoDB', 'doku'],
             demoUrl: 'https://example.com/demo1',
             githubUrl: 'https://github.com/user/project1',
             duration: '4 weeks',
-            views: '2.1k'
-        },
+            views: '± 10'
+        },*/
         { 
-            image: 'https://picsum.photos/200/300', 
-            name: 'Task Management App', 
-            description: 'Collaborative task management application with real-time updates and team collaboration features',
-            techStack: ['Vue.js', 'Firebase', 'Tailwind CSS'],
+            image: '/public/botAbsensi.png', 
+            name: 'bot absensi otomatis', 
+            description: 'Bot absensi otomatis dengan integrasi dengan sistem notifikasi absensi lewat whatsapp',
+            techStack: ['express', 'MongoDB', 'Puppeteer', "baileys js"],
             demoUrl: 'https://example.com/demo2',
-            githubUrl: 'https://github.com/user/project2',
+            githubUrl: 'https://github.com/ifradev-me/absen-auto',
+            duration: '7 weeks',
+            views: '± 112'
+        },
+        { 
+            image: '/public/IoT.png', 
+            name: 'IoT Dashboard', 
+            description: 'Website IoT dashboard dengan visual yang interaktif dan memukau',
+            techStack: ['React', 'python', 'USK API', 'sqlite3', 'flask', 'axios', 'fastAPI'],
+            demoUrl: 'https://colab.research.google.com/drive/1_KlDIy9WBLs1G07lWhXEsYok2VE7Livo',
             duration: '3 weeks',
-            views: '1.8k'
+            views: 'under 50'
         },
         { 
-            image: 'https://picsum.photos/200/300', 
-            name: 'Weather Dashboard', 
-            description: 'Interactive weather dashboard with location-based forecasts and beautiful data visualizations',
-            techStack: ['React', 'Chart.js', 'OpenWeather API', 'Sass'],
-            demoUrl: 'https://example.com/demo3',
-            githubUrl: 'https://github.com/user/project3',
-            duration: '2 weeks',
-            views: '1.5k'
-        },
-        { 
-            image: 'https://picsum.photos/200/300', 
-            name: 'Social Media Clone', 
-            description: 'Instagram-like social media platform with photo sharing, comments, and real-time messaging',
-            techStack: ['Next.js', 'PostgreSQL', 'Socket.io', 'AWS S3', 'Redis'],
-            demoUrl: 'https://example.com/demo4',
-            githubUrl: 'https://github.com/user/project4',
-            duration: '6 weeks',
-            views: '3.2k'
-        },
-        { 
-            image: 'https://picsum.photos/200/300', 
-            name: 'Crypto Portfolio Tracker', 
-            description: 'Real-time cryptocurrency portfolio tracking with advanced charts and market analysis tools',
-            techStack: ['Angular', 'TypeScript', 'CoinGecko API', 'Chart.js'],
-            demoUrl: 'https://example.com/demo5',
-            githubUrl: 'https://github.com/user/project5',
-            duration: '5 weeks',
-            views: '2.7k'
+            image: '/public/sii.png', 
+            name: 'Islamic event Landing Page', 
+            description: 'landing page islami dengan album dan testimoni event',
+            techStack: ['bootstrap', 'Google Cloud Api', 'app script', 'vercel'],
+            demoUrl: 'https://sii2025.netlify.app/',
+            githubUrl: 'https://github.com/ifradev-me/SII-2025',
+            duration: '3 weeks',
+            views: '± 100'
         },
         { 
             image: 'https://picsum.photos/200/300', 
             name: 'AI Chat Assistant', 
-            description: 'Intelligent chatbot with natural language processing and machine learning capabilities',
-            techStack: ['Python', 'FastAPI', 'TensorFlow', 'React', 'WebSocket'],
+            description: 'chatbot yang dapat membantu pengguna meringkas email masuk dan pengingat tugas harian',
+            techStack: ['baileys js', 'axios', 'Google Cloud API', 'n8n', 'Openai API', 'MongoDB' ],
             demoUrl: 'https://example.com/demo6',
             githubUrl: 'https://github.com/user/project6',
-            duration: '8 weeks',
-            views: '4.1k'
+            duration: '4 weeks',
+            views: 'on development'
         },
     ]
 
@@ -150,7 +139,7 @@ const ProjectSection = () => {
         {/* Tutorial overlay */}
         <div 
             className={`absolute w-full h-full bg-radial to-background-950/60 ${
-                tutorial ? 'from-background-800/80 z-30 ignore' : 'from-transparent pointer-events-none'
+                tutorial ? 'from-background-800 z-30 ignore' : 'from-transparent pointer-events-none'
             }`} 
             onClick={() => setTutorial(false)} 
             style={{
@@ -204,12 +193,12 @@ const ProjectSection = () => {
                 ))}
             </div>
 
-            {/* Load More Button - Desktop */}
+            {/* Load More Button - Desktop 
             <div className="flex justify-center mt-12">
                 <button className="bg-gradient-to-r from-background-800 to-background-700 border-2 border-border-gold text-text-50 py-4 px-8 rounded-2xl font-body font-semibold hover:from-background-700 hover:to-background-600 hover:border-text-gold hover:text-text-gold transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-border-gold/20">
                     Lihat Semua Project
                 </button>
-            </div>
+            </div>*/}
         </div>
     </div>
 </div>

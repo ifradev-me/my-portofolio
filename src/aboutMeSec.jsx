@@ -18,18 +18,14 @@ const AboutMeSection = () => {
                     
                     <div className="relative z-10">
                         <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-text-300 mb-8 max-w-3xl">
-                            Ini adalah bagian tentang saya. Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Ab architecto suscipit consequatur dolorum possimus itaque amet magnam qui! Asperiores, 
-                            corrupti nobis deleniti nam quasi magni placeat optio labore inventore aliquid ea illo 
-                            maiores excepturi minus laboriosam odit? Mollitia tempore facilis repudiandae fuga 
-                            eveniet minima reprehenderit, odit atque ab praesentium doloribus.
+                           Di dunia yang serba cepat, kami percaya inovasi adalah jalan hidup terbaik. Ifrad Dev lahir dari semangat membantu UMKM agar tidak ketinggalan zaman. Saya (Ifrad) sudah lama berkecimpung di dunia teknologi, dan menyadari banyak pemilik usaha masih kesulitan memahami teknologi. Maka, lewat Ifrad Dev, kami tidak hanya membangun solusi teknologi, tetapi juga membimbing klien memahami cara kerjanya. Nilai kami: Inovasi, edukasi, dan kemudahan. Kami selalu mencari cara baru untuk menyederhanakan proses, serta senang berbagi ilmu (misal lewat video tutorial atau sesi konsultasi) agar tiap klien jadi lebih percaya diri dengan teknologinya
                         </p>
 
                         {/* Highlight quote atau key point */}
                         <div className="relative bg-gradient-to-r from-blue-50 to-purple-50 border-l-4 border-blue-500 p-4 mb-6 rounded-r-lg">
                             <div className="absolute top-4 right-4 w-2 h-2 bg-blue-500 rounded-full opacity-60"></div>
                             <p className="text-lg font-medium text-gray-800 italic">
-                                "Passionate about creating innovative solutions and meaningful experiences."
+                                 "Dalam dunia yang serba cepat ini, inovasi adalah jalan hidup terbaik."
                             </p>
                         </div>
                     </div>
