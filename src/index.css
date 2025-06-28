@@ -164,3 +164,252 @@
 .animate-shimmer {
   animation: shimmer 0.87s infinite;
 }
+
+/* ===== DISABLED BUTTON CLASSES ===== */
+@layer components {
+  /* Base disabled button styling */
+  .btn-disabled {
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  /* Primary button disabled */
+  .btn-primary-disabled {
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
+    @apply transition-all duration-300 ease-in-out;
+    @apply bg-gray-400 text-gray-200;
+    @apply border-gray-400;
+  }
+
+  /* Secondary button disabled */
+  .btn-secondary-disabled {
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
+    @apply transition-all duration-300 ease-in-out;
+    @apply bg-transparent text-gray-400;
+    @apply border-gray-300;
+  }
+
+  /* Icon button disabled */
+  .btn-icon-disabled {
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
+    @apply transition-all duration-300 ease-in-out;
+    @apply bg-gray-100 text-gray-400;
+    @apply hover:bg-gray-100 hover:text-gray-400;
+  }
+
+  /* Dark mode button disabled */
+  .dark .btn-primary-disabled {
+    @apply bg-gray-600 text-gray-400;
+    @apply border-gray-600;
+  }
+
+  .dark .btn-secondary-disabled {
+    @apply bg-transparent text-gray-500;
+    @apply border-gray-600;
+  }
+
+  .dark .btn-icon-disabled {
+    @apply bg-gray-800 text-gray-600;
+    @apply hover:bg-gray-800 hover:text-gray-600;
+  }
+
+  /* ===== DISABLED NAVBAR CLASSES ===== */
+
+  /* Base navbar item disabled */
+  .nav-item-disabled {
+    @apply opacity-60 cursor-not-allowed pointer-events-none;
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  /* Navbar link disabled */
+  .nav-link-disabled {
+    @apply opacity-60 cursor-not-allowed pointer-events-none;
+    @apply transition-all duration-300 ease-in-out;
+    @apply text-gray-400 hover:text-gray-400;
+    @apply no-underline;
+  }
+
+  /* Navbar icon disabled */
+  .nav-icon-disabled {
+    @apply opacity-60 cursor-not-allowed pointer-events-none;
+    @apply transition-all duration-300 ease-in-out;
+    @apply text-gray-400;
+    @apply hover:text-gray-400 hover:bg-transparent;
+  }
+
+  /* Active navbar item disabled (override active state) */
+  .nav-active-disabled {
+    @apply opacity-60 cursor-not-allowed pointer-events-none;
+    @apply transition-all duration-300 ease-in-out;
+    @apply text-gray-400 bg-transparent;
+    @apply border-transparent shadow-none;
+  }
+
+  /* Dark mode navbar disabled */
+  .dark .nav-link-disabled {
+    @apply text-gray-500 hover:text-gray-500;
+  }
+
+  .dark .nav-icon-disabled {
+    @apply text-gray-600 hover:text-gray-600;
+  }
+
+  .dark .nav-active-disabled {
+    @apply text-gray-500 bg-transparent;
+  }
+
+  /* ===== SVG ICON DISABLED STATES ===== */
+
+  /* SVG icons in disabled state */
+  .disabled svg,
+  .btn-disabled svg,
+  .nav-item-disabled svg {
+    @apply opacity-50 transition-opacity duration-300;
+    stroke: currentColor;
+  }
+
+  /* Specific icon disabled styling */
+  .icon-disabled {
+    @apply text-gray-400 opacity-50;
+    @apply transition-all duration-300;
+  }
+
+  .dark .icon-disabled {
+    @apply text-gray-600;
+  }
+
+  /* ===== UTILITY CLASSES ===== */
+
+  /* General disabled state */
+  .disabled {
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
+    @apply select-none;
+  }
+
+  /* Disabled with fade animation */
+  .disabled-fade {
+    
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
+    @apply select-none;
+    @apply transition-opacity duration-500 ease-out;
+  }
+
+  /* Disabled with subtle animation */
+  .disabled-pulse {
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
+    @apply select-none;
+    @apply animate-pulse;
+  }
+
+  /* ===== COMPONENT SPECIFIC CLASSES ===== */
+
+  /* Mobile burger menu disabled */
+  .burger-disabled {
+    
+    @apply opacity-60 cursor-not-allowed pointer-events-none;
+    @apply transition-all duration-300 ease-in-out;
+    @apply text-gray-400;
+    @apply hover:text-gray-400 hover:bg-transparent;
+  }
+
+  .burger-disabled .burger-line {
+    @apply bg-gray-400 transition-colors duration-300;
+  }
+
+  .dark .burger-disabled .burger-line {
+    @apply bg-gray-600;
+  }
+
+  /* Social media icons disabled */
+  .social-icon-disabled {
+    
+    @apply text-gray-400 opacity-50;
+    @apply transition-all duration-300;
+    @apply hover:scale-100 hover:rotate-0;
+    @apply hover:shadow-none;
+  }
+
+  /* Theme toggle disabled */
+  .theme-toggle-disabled {
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
+    @apply transition-all duration-300 ease-in-out;
+    @apply bg-gray-100 text-gray-400;
+    @apply hover:bg-gray-100 hover:text-gray-400;
+    @apply transform-none;
+  }
+
+  /* ===== RESPONSIVE DISABLED STATES ===== */
+
+  /* Mobile disabled adjustments */
+  @media (max-width: 768px) {
+    .nav-item-disabled {
+      @apply opacity-40;
+    }
+    
+    .btn-disabled {
+      @apply opacity-40;
+    }
+  }
+
+  /* Tablet disabled adjustments */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .nav-item-disabled {
+      @apply opacity-50;
+    }
+  }
+
+  /* ===== HOVER OVERRIDES FOR DISABLED STATES ===== */
+
+  /* Ensure no hover effects on disabled elements */
+  .btn-disabled:hover,
+  .btn-disabled:focus,
+  .btn-disabled:active {
+    @apply transform-none scale-100;
+    @apply shadow-none;
+  }
+
+  .nav-item-disabled:hover,
+  .nav-item-disabled:focus,
+  .nav-item-disabled:active {
+    @apply transform-none scale-100;
+    @apply bg-transparent text-gray-400;
+  }
+
+  .dark .nav-item-disabled:hover,
+  .dark .nav-item-disabled:focus,
+  .dark .nav-item-disabled:active {
+    @apply bg-transparent text-gray-600;
+  }
+
+  /* ===== ACCESSIBILITY ENHANCEMENTS ===== */
+
+  /* Screen reader friendly disabled state */
+  .disabled[aria-disabled="true"] {
+    @apply opacity-50;
+  }
+
+  /* Focus outline removal for disabled elements */
+  .disabled:focus,
+  .btn-disabled:focus,
+  .nav-item-disabled:focus {
+    @apply outline-none ring-0;
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .disabled,
+    .btn-disabled,
+    .nav-item-disabled {
+      @apply opacity-30;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .disabled,
+    .btn-disabled,
+    .nav-item-disabled {
+      @apply transition-none;
+    }
+  }
+}
