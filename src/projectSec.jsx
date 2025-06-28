@@ -18,7 +18,7 @@ const ProjectSection = () => {
             name: 'bot absensi otomatis', 
             description: 'Bot absensi otomatis dengan integrasi dengan sistem notifikasi absensi lewat whatsapp',
             techStack: ['express', 'MongoDB', 'Puppeteer', "baileys js"],
-            demoUrl: 'https://example.com/demo2',
+            demoUrl: 'https:wa.me/6287744328617',
             githubUrl: 'https://github.com/ifradev-me/absen-auto',
             duration: '7 weeks',
             views: '± 112'
@@ -44,7 +44,7 @@ const ProjectSection = () => {
         },
         { 
             image: 'https://picsum.photos/200/300', 
-            name: 'AI Chat Assistant', 
+            name: 'AI Chat Assistant (coming soon)', 
             description: 'chatbot yang dapat membantu pengguna meringkas email masuk dan pengingat tugas harian',
             techStack: ['baileys js', 'axios', 'Google Cloud API', 'n8n', 'Openai API', 'MongoDB' ],
             demoUrl: 'https://example.com/demo6',

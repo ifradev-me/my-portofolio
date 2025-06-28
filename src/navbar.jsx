@@ -94,19 +94,19 @@ const Navbar = (whereActive) => {
                             </a>
                         </li>
                         <li>
-                            <a href="#" className="flex flex-col items-center text-sm p-1">
+                            <a href="#" className="flex flex-col items-center text-sm p-1 nav-link-disabled">
                                 <LampIcon className="w-6 h-6 mb-1" />
                                 skill
                             </a>
                         </li>
                         <li>
-                            <a href="#" className='flex flex-col items-center text-xs p-1'>
+                            <a href="#" className='flex flex-col items-center text-xs p-1 nav-link-disabled'>
                                 <TestimonialIcon className="w-6 h-6 mb-1" />
                                 Testimoni
                             </a>
                         </li>
                         <li>
-                            <a href="#" className="flex flex-col items-center text-xs p-1">
+                            <a href="#" className="flex flex-col items-center text-xs p-1 nav-link-disabled">
                                 <BlogIcon className="w-6 h-6 mb-1" />
                                 Blog
                             </a>
@@ -158,13 +158,13 @@ const Navbar = (whereActive) => {
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="flex items-center space-x-2 text-text-100 hover:text-accent-500 transition-colors">
+                                <a href="#" className=" nav-link-disabled flex items-center space-x-2 text-text-100 hover:text-accent-500 transition-colors">
                                     <TestimonialIcon className="w-5 h-5" />
                                     <span>Testimoni</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="flex items-center space-x-2 text-text-100 hover:text-accent-500 transition-colors">
+                                <a href="#" className="nav-link-disabled flex items-center space-x-2 text-text-100 hover:text-accent-500 transition-colors">
                                     <BlogIcon className="w-5 h-5" />
                                     <span>Blog</span>
                                 </a>
