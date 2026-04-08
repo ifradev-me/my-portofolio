@@ -1,44 +1,115 @@
 import { ChatIcon, GmailIcon, InstagramIcon, LinkedInIcon, GitHubIcon } from './component/Icon';
+import KontakForm from './KontakForm';
 
-const handleWA = () => {
-  const number = 6282260740023
-  const pesan = document.querySelector('textarea').value
-  const link = `https://wa.me/${number}?text=${encodeURIComponent(pesan)}`
-  window.open(link, "_blank")
-}
-
+const socialLinks = [
+  { href: "https://www.instagram.com/radilsyaiff/",                  Icon: InstagramIcon, label: "Instagram" },
+  { href: "https://www.linkedin.com/in/ifradil-syaifa-218a252a7/",   Icon: LinkedInIcon,  label: "LinkedIn"  },
+  { href: "https://github.com/ifradev-me",                           Icon: GitHubIcon,    label: "GitHub"    },
+  { href: "mailto:ifradlisyaifa03@gmail.com",                        Icon: GmailIcon,     label: "Gmail"     },
+  { href: "https://wa.me/6282260740023",                             Icon: ChatIcon,      label: "WhatsApp"  },
+];
 
 const KontakSection = () => {
-    return (
-        <section className="min-h-screen py-10 px-6 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-950 mt-4 tracking-tight">
-                    Ngobrol Yuk!
-                </h2>
-                <p className="text-lg sm:text-xl lg:text-2xl text-text-800 mb-4">
-                    Jangan ragu untuk menghubungi saya. Saya siap membantu dan menjawab pertanyaan Anda.
-                </p>
-                <div className='flex gap-2'>
-                    <a href="https://www.instagram.com/radilsyaiff/"><InstagramIcon className="w-6 h-6" /></a>
-                    <a href="https://www.linkedin.com/in/ifradil-syaifa-218a252a7/"><LinkedInIcon className="w-6 h-6" /></a>
-                    <a href="https://github.com/ifradev-me"><GitHubIcon className="w-6 h-6" /></a>
-                    <a href="mailto:ifradlisyaifa03@gmail.com"><GmailIcon className="w-6 h-6" /></a>
-                    <a href="wa.me/6282260740023"><ChatIcon className="w-6 h-6" /></a>
+
+  return (
+    <section className="relative min-h-screen py-20 px-5 sm:px-8 lg:px-16 overflow-hidden bg-background-50">
+
+      {/* Grid bg */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(0,41,107,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,41,107,0.04) 1px, transparent 1px)',
+          backgroundSize: '60px 60px',
+        }}
+      />
+
+      {/* Glow orbs */}
+      <div className="absolute top-0 right-0 w-1/2 h-1/2 pointer-events-none"
+        style={{ background: 'radial-gradient(circle at 80% 20%, rgba(255,195,0,0.08) 0%, transparent 65%)' }} />
+      <div className="absolute bottom-0 left-0 w-2/5 h-2/5 pointer-events-none"
+        style={{ background: 'radial-gradient(circle at 20% 80%, rgba(0,41,107,0.06) 0%, transparent 65%)' }} />
+
+      <div className="relative z-10 max-w-5xl mx-auto">
+
+        {/* Header */}
+        <div className="mb-12">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="w-2 h-2 rounded-full bg-primary-gold-600 animate-pulse inline-block" />
+            <span className="font-body text-text-500 text-xs uppercase tracking-widest font-semibold">
+              Hubungi Saya
+            </span>
+          </div>
+
+          <h2 className="font-header font-bold text-primary-blue leading-none"
+            style={{ fontSize: 'clamp(2.8rem, 8vw, 6rem)' }}>
+            Ngobrol{' '}
+            <span className="text-primary-gold-600">Yuk!</span>
+          </h2>
+
+          <p className="font-body text-primary-blue-700 text-lg mt-3 max-w-xl leading-relaxed">
+            Punya ide? Butuh website atau bot WhatsApp? Jangan ragu —
+            saya siap bantu wujudkan bisnis digitalmu.
+          </p>
+        </div>
+
+        {/* 2-col layout */}
+        <div className="grid lg:grid-cols-5 gap-10 items-start">
+
+          {/* LEFT */}
+          <div className="lg:col-span-2 space-y-5">
+
+            {/* Contact cards */}
+            {[
+              { emoji: "📱", label: "WhatsApp", val: "+62 822-6074-0023", href: "https://wa.me/6282260740023" },
+              { emoji: "✉️", label: "Email", val: "ifradlisyaifa03@gmail.com", href: "mailto:ifradlisyaifa03@gmail.com" },
+            ].map(({ emoji, label, val, href }) => (
+              <a key={label} href={href} target="_blank" rel="noreferrer"
+                className="flex items-center gap-4 p-4 rounded-2xl border border-primary-gold-200
+                  bg-white hover:border-primary-gold-400 group transition-all duration-300 shadow-sm">
+                <span className="text-2xl">{emoji}</span>
+                <div>
+                  <div className="font-body text-text-500 text-xs uppercase tracking-wider font-semibold">{label}</div>
+                  <div className="font-body text-primary-blue text-sm font-medium mt-0.5 group-hover:text-primary-gold-600 transition-colors duration-300">
+                    {val}
+                  </div>
                 </div>
-                <form action="#" method="post" className='mt-8 flex flex-col gap-4 border-2 border-white rounded-3xl p-4 pb-5 -bg-conic-0 from-primary-blue via-primary-purple-900 to-primary-blue text-text-200 placeholder:text-text-400 focus:border-0 focus:shadow-lg group focus-within:scale-105 focus-within:shadow-lg transition-all duration-300'>
-                    <label htmlFor="Name">Nama:</label>
-                    <input type="text" required placeholder='anonim' className='appearance-none outline-none bg-background-800/60 rounded-lg p-1.5 focus:ring-0 caret-white'/>
-                    <label htmlFor="Email"></label>
-                    <label htmlFor='nomor whatsapp'>Nomor Whatsapp:</label>
-                    <input type="number" placeholder='628123456789' className='appearance-none outline-none border-none focus:ring-0 caret-white bg-background-800/60 rounded-lg p-1.5 '/>
-                    <label htmlFor="Message" >Pesan:</label>
-                    <textarea typeof="text" required placeholder='Pesan' className='appearance-none p-2 outline-none border-none focus:ring-0 text-black caret-primary-purple w-full bg-white rounded-lg '></textarea>
-                    <button type="submit" onClick={handleWA} className='appearance-none outline-none focus:ring-0 caret-white bg-primary-blue/50 border-1  border-accent-600/70 text-text-100 rounded-lg p-1.5 hover:bg-background-800/50 hover:text-white transition-all duration-300'>Kirim</button>
-                </form>
-                
+              </a>
+            ))}
+
+            {/* Social */}
+            <div>
+              <p className="font-body text-text-500 text-xs uppercase tracking-widest font-semibold mb-3">
+                Temukan saya di
+              </p>
+              <div className="flex gap-3">
+                {socialLinks.map(({ href, Icon, label }) => (
+                  <a key={label} href={href} target="_blank" rel="noreferrer" title={label}
+                    className="w-11 h-11 flex items-center justify-center rounded-xl
+                      bg-white border border-primary-gold-200 text-primary-blue-700
+                      hover:border-primary-gold-400 hover:text-primary-gold-600 hover:-translate-y-1
+                      transition-all duration-200 shadow-sm">
+                    <Icon className="w-5 h-5" />
+                  </a>
+                ))}
+              </div>
             </div>
-        </section>
-    );
+
+            {/* Online badge */}
+            <div className="flex items-center gap-3 p-4 rounded-2xl bg-white border border-green-200 shadow-sm">
+              <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse flex-shrink-0 inline-block" />
+              <p className="font-body text-green-600 text-sm font-medium">
+                Biasanya membalas dalam <strong>1 jam</strong>
+              </p>
+            </div>
+          </div>
+
+          {/* RIGHT — Form */}
+          <KontakForm />
+
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default KontakSection;

@@ -1,13 +1,15 @@
+'use client'
+
 import {ProjectsIcon, ContactIcon, HomeIcon, BurgerIcon, AboutIcon, SkillsIcon, BlogIcon, TestimonialIcon, LampIcon } from './component/Icon.jsx'
-import { useState, useEffect } from 'react' 
+import { useState, useEffect } from 'react'
 import Togglebutton from './component/toggleButton.jsx'
+import Link from 'next/link'
 
 
-const Navbar = (whereActive) => {
+const Navbar = () => {
     const [isSecondPage, setSecondPage] = useState(false)
     const [isMobile, setIsMobile] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
-    const [isActice, setIsActive] = useState(false)
     
     const handleToggle = () => {
         setSecondPage(!isSecondPage)     
@@ -100,16 +102,16 @@ const Navbar = (whereActive) => {
                             </a>
                         </li>
                         <li>
-                            <a href="#" className='flex flex-col items-center text-xs p-1 nav-link-disabled'>
+                            <Link href="/testimoni" className='flex flex-col items-center text-xs p-1'>
                                 <TestimonialIcon className="w-6 h-6 mb-1" />
                                 Testimoni
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#" className="flex flex-col items-center text-xs p-1 nav-link-disabled">
+                            <Link href="/blog" className="flex flex-col items-center text-xs p-1">
                                 <BlogIcon className="w-6 h-6 mb-1" />
                                 Blog
-                            </a>
+                            </Link>
                         </li>
                         
                     </ul>
@@ -134,43 +136,43 @@ const Navbar = (whereActive) => {
                     <div className="hidden md:block">
                         <ul className="flex space-x-8">
                             <li>
-                                <a href="#" className="flex items-center space-x-2 text-text-100 hover:text-accent-500 transition-colors">
+                                <a href="#home" className="flex items-center space-x-2 text-text-100 hover:text-accent-500 transition-colors">
                                     <HomeIcon className="w-5 h-5" />
                                     <span>Home</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="flex items-center space-x-2 text-text-100 hover:text-accent-500 transition-colors">
+                                <a href="#project" className="flex items-center space-x-2 text-text-100 hover:text-accent-500 transition-colors">
                                     <ProjectsIcon className="w-5 h-5" />
                                     <span>Project</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="flex items-center space-x-2 text-text-100 hover:text-accent-500 transition-colors">
+                                <a href="#layanan" className="flex items-center space-x-2 text-text-100 hover:text-accent-500 transition-colors">
                                     <SkillsIcon className="w-5 h-5" />
                                     <span>Layanan</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="flex items-center space-x-2 text-text-100 hover:text-accent-500 transition-colors">
+                                <a href="#about" className="flex items-center space-x-2 text-text-100 hover:text-accent-500 transition-colors">
                                     <AboutIcon className="w-5 h-5" />
                                     <span>About</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className=" nav-link-disabled flex items-center space-x-2 text-text-100 hover:text-accent-500 transition-colors">
+                                <Link href="/testimoni" className="flex items-center space-x-2 text-text-100 hover:text-accent-500 transition-colors">
                                     <TestimonialIcon className="w-5 h-5" />
                                     <span>Testimoni</span>
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="#" className="nav-link-disabled flex items-center space-x-2 text-text-100 hover:text-accent-500 transition-colors">
+                                <Link href="/blog" className="flex items-center space-x-2 text-text-100 hover:text-accent-500 transition-colors">
                                     <BlogIcon className="w-5 h-5" />
                                     <span>Blog</span>
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="#" className="flex items-center space-x-2 text-text-100 hover:text-accent-500 transition-colors">
+                                <a href="#kontak" className="flex items-center space-x-2 text-text-100 hover:text-accent-500 transition-colors">
                                     <ContactIcon className="w-5 h-5" />
                                     <span>Kontak</span>
                                 </a>
@@ -193,13 +195,13 @@ const Navbar = (whereActive) => {
                 {isSecondPage && (
                     <div className="md:hidden bg-background-800 border-t border-background-700">
                         <ul className="px-2 pt-2 pb-3 space-y-1">
-                            <li><a href="#" className="flex items-center space-x-3 px-3 py-2 text-text-100 hover:bg-background-700 rounded-md"><HomeIcon className="w-5 h-5" /><span>Home</span></a></li>
-                            <li><a href="#" className="flex items-center space-x-3 px-3 py-2 text-text-100 hover:bg-background-700 rounded-md"><ProjectsIcon className="w-5 h-5" /><span>Project</span></a></li>
-                            <li><a href="#" className="flex items-center space-x-3 px-3 py-2 text-text-100 hover:bg-background-700 rounded-md"><SkillsIcon className="w-5 h-5" /><span>Layanan</span></a></li>
-                            <li><a href="#" className="flex items-center space-x-3 px-3 py-2 text-text-100 hover:bg-background-700 rounded-md"><AboutIcon className="w-5 h-5" /><span>About</span></a></li>
-                            <li><a href="#" className="flex items-center space-x-3 px-3 py-2 text-text-100 hover:bg-background-700 rounded-md"><TestimonialIcon className="w-5 h-5" /><span>Testimoni</span></a></li>
-                            <li><a href="#" className="flex items-center space-x-3 px-3 py-2 text-text-100 hover:bg-background-700 rounded-md"><BlogIcon className="w-5 h-5" /><span>Blog</span></a></li>
-                            <li><a href="#" className="flex items-center space-x-3 px-3 py-2 text-text-100 hover:bg-background-700 rounded-md"><ContactIcon className="w-5 h-5" /><span>Kontak</span></a></li>
+                            <li><a href="#home" className="flex items-center space-x-3 px-3 py-2 text-text-100 hover:bg-background-700 rounded-md"><HomeIcon className="w-5 h-5" /><span>Home</span></a></li>
+                            <li><a href="#project" className="flex items-center space-x-3 px-3 py-2 text-text-100 hover:bg-background-700 rounded-md"><ProjectsIcon className="w-5 h-5" /><span>Project</span></a></li>
+                            <li><a href="#layanan" className="flex items-center space-x-3 px-3 py-2 text-text-100 hover:bg-background-700 rounded-md"><SkillsIcon className="w-5 h-5" /><span>Layanan</span></a></li>
+                            <li><a href="#about" className="flex items-center space-x-3 px-3 py-2 text-text-100 hover:bg-background-700 rounded-md"><AboutIcon className="w-5 h-5" /><span>About</span></a></li>
+                            <li><Link href="/testimoni" className="flex items-center space-x-3 px-3 py-2 text-text-100 hover:bg-background-700 rounded-md"><TestimonialIcon className="w-5 h-5" /><span>Testimoni</span></Link></li>
+                            <li><Link href="/blog" className="flex items-center space-x-3 px-3 py-2 text-text-100 hover:bg-background-700 rounded-md"><BlogIcon className="w-5 h-5" /><span>Blog</span></Link></li>
+                            <li><a href="#kontak" className="flex items-center space-x-3 px-3 py-2 text-text-100 hover:bg-background-700 rounded-md"><ContactIcon className="w-5 h-5" /><span>Kontak</span></a></li>
                         </ul>
                     </div>
                 )}
