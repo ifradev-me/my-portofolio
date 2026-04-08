@@ -1,56 +1,92 @@
+'use client'
+
 import ProjectItem from "./projectItem"
 import { useState, useEffect, useRef } from "react"
 
 const ProjectSection = () => {
     const projectList = [
-        /*{ 
-            image: 'https://picsum.photos/200/300', 
-            name: 'E-Commerce Website', 
-            description: 'Full-stack e-commerce platform dengan pembayaran terintegrasi, autentifikasi dan admin dashboard',
-            techStack: ['React', 'Node.js', 'MongoDB', 'doku'],
-            demoUrl: 'https://example.com/demo1',
-            githubUrl: 'https://github.com/user/project1',
-            duration: '4 weeks',
-            views: '± 10'
-        },*/
-        { 
-            image: '/botAbsen.png', 
-            name: 'bot absensi otomatis', 
-            description: 'Bot absensi otomatis dengan integrasi dengan sistem notifikasi absensi lewat whatsapp',
-            techStack: ['express', 'MongoDB', 'Puppeteer', "baileys js"],
-            demoUrl: 'https:wa.me/6287744328617',
+        {
+            image: '/botAbsen.png',
+            name: 'Bot Absensi Otomatis',
+            description: 'Bot absensi otomatis dengan integrasi notifikasi absensi lewat WhatsApp',
+            techStack: ['Express', 'MongoDB', 'Puppeteer', 'Baileys JS'],
             githubUrl: 'https://github.com/ifradev-me/absen-auto',
             duration: '7 weeks',
-            views: '± 112'
+            views: '± 112',
+            status: 'completed'
         },
-        { 
-            image: '/IoT.png', 
-            name: 'IoT Dashboard', 
-            description: 'Website IoT dashboard dengan visual yang interaktif dan memukau',
-            techStack: ['React', 'python', 'USK API', 'sqlite3', 'flask', 'axios', 'fastAPI'],
+        {
+            image: '/IoT.png',
+            name: 'IoT Dashboard',
+            description: 'Website IoT dashboard dengan visual interaktif untuk monitoring data sensor secara real-time',
+            techStack: ['React', 'Python', 'Flask', 'FastAPI', 'SQLite'],
             demoUrl: 'https://colab.research.google.com/drive/1_KlDIy9WBLs1G07lWhXEsYok2VE7Livo',
             duration: '3 weeks',
-            views: 'under 50'
+            views: 'under 50',
+            status: 'completed'
         },
-        { 
-            image: '/sii.png', 
-            name: 'Islamic event Landing Page', 
-            description: 'landing page islami dengan album dan testimoni event',
-            techStack: ['bootstrap', 'Google Cloud Api', 'app script', 'vercel'],
-            demoUrl: 'https://sii2025.netlify.app/',
+        {
+            image: '/sii.png',
+            name: 'Islamic Event Landing Page',
+            description: 'Landing page islami dengan fitur galeri foto dan testimoni untuk event SII 2025',
+            techStack: ['Bootstrap', 'Google Cloud API', 'App Script', 'Vercel'],
             githubUrl: 'https://github.com/ifradev-me/SII-2025',
             duration: '3 weeks',
-            views: '± 100'
+            views: '± 100',
+            status: 'completed'
         },
-        { 
-            image: 'https://picsum.photos/200/300', 
-            name: 'AI Chat Assistant (coming soon)', 
-            description: 'chatbot yang dapat membantu pengguna meringkas email masuk dan pengingat tugas harian',
-            techStack: ['baileys js', 'axios', 'Google Cloud API', 'n8n', 'Openai API', 'MongoDB' ],
-            demoUrl: 'https://example.com/demo6',
-            githubUrl: 'https://github.com/user/project6',
-            duration: '4 weeks',
-            views: 'on development'
+        {
+            image: '/culture x perkenalan budaya aceh dan umkm.png',
+            name: 'Culture X',
+            description: 'Platform pengenalan budaya Aceh dan pendampingan UMKM Aceh berbasis AI, dibangun dengan React TypeScript dan Appwrite',
+            techStack: ['React TS', 'Appwrite', 'OpenRouter'],
+            githubUrl: 'https://github.com/ifradev-me/culture-x_frontend_main',
+            duration: '~ ongoing',
+            status: 'beta'
+        },
+        {
+            image: '/fanfic translator.png',
+            name: 'Fanfic Translator',
+            description: 'Alat penerjemahan fanfic otomatis via workflow n8n dan AI, dikembangkan untuk kebutuhan internal',
+            techStack: ['n8n', 'OpenRouter'],
+            duration: '~ 2 weeks',
+            status: 'internal'
+        },
+        {
+            image: '/konsitech-platform edukasi hukum.png',
+            name: 'Konsitech',
+            description: 'Platform edukasi hukum yang membantu masyarakat memahami konstitusi dan hukum Indonesia secara mudah melalui AI',
+            techStack: ['React JS', 'Express', 'OpenRouter'],
+            githubUrl: 'https://github.com/ifradev-me/frontend-konsi-tech',
+            duration: '~ ongoing',
+            status: 'completed'
+        },
+        {
+            image: '/kroeng usk - organisasi kampus.png',
+            name: 'Kroeng USK',
+            description: 'Landing page untuk komunitas robotika engineering Universitas Syiah Kuala, sudah production namun menunggu persetujuan internal',
+            techStack: ['Next.js', 'Express'],
+            githubUrl: 'https://github.com/ifradev-me/kroeng-usk',
+            duration: '~ 3 weeks',
+            status: 'pending'
+        },
+        {
+            image: '/menu makanan warkop mjd kupi.png',
+            name: 'Warkop MJD',
+            description: 'Website menu lauk dan minuman interaktif untuk Warkop MJD, bukan sekedar landing page tapi platform menu digital',
+            techStack: ['React JS', 'Cloudflare'],
+            githubUrl: 'https://github.com/ifradev-me/demo-mjd',
+            duration: '~ 2 weeks',
+            status: 'completed'
+        },
+        {
+            image: '/nutrisight.png',
+            name: 'NutriSight',
+            description: 'Aplikasi Android untuk deteksi dan pemahaman gizi keluarga, difokuskan untuk ibu. Saat ini dalam tahap beta test terbatas',
+            techStack: ['React Native TS', 'OpenRouter'],
+            githubUrl: 'https://github.com/nutrisight-innovilage/nutrisight_apps',
+            duration: '~ ongoing',
+            status: 'beta'
         },
     ]
 
@@ -58,6 +94,7 @@ const ProjectSection = () => {
     const [tutorial, setTutorial] = useState(true)
     const [touchInfo, setTouchInfo] = useState({ start: null, current: null, end: null })
     const containerRef = useRef(null)
+
 
     const scrollToItem = (itemIndex) => {
         if (containerRef.current) {
@@ -83,8 +120,7 @@ const ProjectSection = () => {
         if (e.targetTouches && e.targetTouches.length > 0) {
             const touch = e.targetTouches[0]
             const startX = touch.clientX
-            const startTime = Date.now() // Catat waktu mulai
-            
+            const startTime = Date.now() 
             setTouchInfo(prev => ({ ...prev, start: startX, current: startX }))
             setTouchStartTime(startTime)
         }
@@ -132,29 +168,45 @@ const ProjectSection = () => {
 
     return (
         <div className="relative min-h-screen overflow-hidden" id="project-sec">
-    <h2 className="text-white text-3xl font-bold text-center font-header mb-8">Project-ku</h2>
-    
+
+    {/* Section Header */}
+    <div className="pt-16 pb-8 px-6 lg:px-12">
+        <div className="flex items-center gap-2 mb-3">
+            <span className="w-2 h-2 rounded-full bg-primary-gold-600 animate-pulse inline-block" />
+            <span className="font-body text-text-500 text-xs uppercase tracking-widest font-semibold">
+                Karya Saya
+            </span>
+        </div>
+        <h2 className="font-header font-bold text-primary-blue leading-none"
+            style={{ fontSize: 'clamp(2.4rem, 6vw, 5rem)' }}>
+            Project<span className="text-primary-gold-600">.</span>
+        </h2>
+        <p className="font-body text-primary-blue-700 text-base mt-2 max-w-md">
+            Beberapa project yang sudah aku kerjakan.
+        </p>
+    </div>
+
     {/* Mobile Version - Original Code */}
     <div className="block lg:hidden">
         {/* Tutorial overlay */}
-        <div 
-            className={`absolute w-full h-full bg-radial to-background-950/60 ${
-                tutorial ? 'from-background-800 z-30 ignore' : 'from-transparent pointer-events-none'
-            }`} 
-            onClick={() => setTutorial(false)} 
-            style={{
-                maskImage: 'linear-gradient(to top, rgba(0,0,0,1) 20%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0) 100%)',
-                WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,1) 20%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0) 100%)'
-            }}
+        <div
+            className={`absolute inset-0 transition-opacity duration-500 ${
+                tutorial ? 'opacity-100 z-30 ignore' : 'opacity-0 pointer-events-none'
+            }`}
+            onClick={() => setTutorial(false)}
+            style={{ background: 'radial-gradient(ellipse at center, rgba(15,15,20,0.85) 0%, rgba(15,15,20,0.4) 60%, transparent 100%)' }}
         >
             {tutorial && (
-                <div className="absolute inset-0 flex flex-col items-center justify-center z-40">
-                    <div className="text-4xl text-white font-extrabold animate-pulse mb-4">
-                        &gt; &gt;
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+                    <div className="flex gap-2 text-primary-gold-600 animate-pulse">
+                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
                     </div>
-                    <div className="text-white text-lg font-bold">
-                        Geser untuk selanjutnya
-                    </div>
+                    <p className="font-body text-primary-blue text-base font-semibold">Geser untuk selanjutnya</p>
                 </div>
             )}
         </div>
@@ -185,9 +237,9 @@ const ProjectSection = () => {
 
     {/* Desktop & Tablet Version */}
     <div className="hidden lg:block">
-        <div className="container mx-auto px-6 py-8">
+        <div className="container mx-auto px-6 pb-12">
             {/* Grid Layout */}
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                 {projectList.map((project, idx) => (
                     <ProjectItem key={idx} project={project} />
                 ))}
