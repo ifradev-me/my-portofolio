@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/ifradev-me/my-portofolio/compare/v0.0.3...v0.0.4) (2026-04-08)
+
+
+### Features
+
+* make disabled class ([45078ee](https://github.com/ifradev-me/my-portofolio/commit/45078eecd1c6ee15d4880d76b5292092e88d99a1))
+
+
+### Bug Fixes
+
+* fix link to my profile ([7955c0f](https://github.com/ifradev-me/my-portofolio/commit/7955c0ffb7e23dc365b56560fb54d0ac142ace94))
+* hero fix ([f23db72](https://github.com/ifradev-me/my-portofolio/commit/f23db728c3bad07fe7d4db0d1b60efaf3aef1608))
+* huft ([5eda1ed](https://github.com/ifradev-me/my-portofolio/commit/5eda1ede3078a4d771b76cf284e8505bc417124c))
+* kelebihan i anj ([65a02e6](https://github.com/ifradev-me/my-portofolio/commit/65a02e648e5408873235cf64d6639ede28a913e3))
+* perbaiki copywriting ([08f3fc9](https://github.com/ifradev-me/my-portofolio/commit/08f3fc9b120f0474219a3c8f4b01832e4ddd88b8))
+* perbaiki image path ([72749e1](https://github.com/ifradev-me/my-portofolio/commit/72749e1ad4d9a4a77e13eb6a933ab696832a6afa))
+
 ### [0.0.3](https://github.com/ifradev-me/my-portofolio/compare/v0.0.2...v0.0.3) (2025-06-20)
 
 
