@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { getAllPosts, deletePost } from '@/lib/posts'
 import { revalidatePath } from 'next/cache'
+import DeleteButton from './DeleteButton'
 
 export const metadata = { title: 'Kelola Blog — Admin Ifrad Dev' }
 
@@ -69,15 +70,7 @@ export default function AdminBlogPage() {
                     hover:bg-background-800 transition-colors">
                   Preview
                 </Link>
-                <form action={handleDelete}>
-                  <input type="hidden" name="slug" value={post.slug} />
-                  <button type="submit"
-                    className="font-body text-xs text-red-500 hover:text-red-400 px-3 py-1.5 rounded-lg
-                      hover:bg-red-900/20 transition-colors"
-                    onClick={(e) => { if (!confirm(`Hapus post "${post.title}"?`)) e.preventDefault() }}>
-                    Hapus
-                  </button>
-                </form>
+                <DeleteButton action={handleDelete} title={post.title} slug={post.slug} />
               </div>
             </div>
           ))}
