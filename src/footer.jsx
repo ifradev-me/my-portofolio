@@ -17,7 +17,7 @@ const Footer = () => {
             <h4 className="font-semibold mb-3 font-header">Kontakku</h4>
             <ul className="space-y-2 text-sm font-body">
               <li><a href="mailto:ifradlisyafa03@gmail.com" className="text-text-300 hover:text-primary-gold-400 transition-colors">📧 ifradlisyafa03@gmail.com</a></li>
-              <li><a href="wa.me/6282260740023" className="text-text-300 hover:text-primary-gold-400 transition-colors">📞 +6282260740023</a></li>
+              <li><a href="https://wa.me/6282260740023" className="text-text-300 hover:text-primary-gold-400 transition-colors">📞 +6282260740023</a></li>
             </ul>
           </div>
 

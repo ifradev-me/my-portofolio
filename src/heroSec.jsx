@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from "react";
+import Image from 'next/image';
 import texture1 from './assets/durve2.png';
 import fotoTes from './assets/fototes.jpeg';
 
@@ -145,13 +146,14 @@ const HeroSection = () => {
 
                 {/* Image */}
                 <div className="relative mt-6 h-img">
-                    <div className="relative mx-auto w-3/4 max-w-[280px]">
+                    <div className="relative mx-auto w-3/4 max-w-[280px] aspect-[3/4]">
                         <div className="absolute -inset-[2px] rounded-[20px] z-0"
                             style={{ background: 'linear-gradient(135deg, var(--color-primary-gold-400), transparent 60%, #16a34a)' }} />
-                        <img
+                        <Image
                             src={fotoTes}
                             alt="Ifrad"
-                            className="h-float relative z-10 w-full aspect-[3/4] object-cover object-right rounded-[18px]"
+                            fill
+                            className="h-float z-10 object-cover object-right rounded-[18px]"
                         />
                     </div>
                     <div className="absolute -top-2 left-[11%] w-16 h-16 border-t-2 border-l-2 border-primary-gold-700/40" />
@@ -263,13 +265,14 @@ const HeroSection = () => {
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[128%] aspect-square rounded-full border border-primary-gold-900/15" />
 
                     {/* Image frame */}
-                    <div className="h-float relative mx-auto w-[85%]">
+                    <div className="h-float relative mx-auto w-[85%] aspect-[3/4]">
                         <div className="absolute -inset-[2px] rounded-[20px] z-0"
                             style={{ background: 'linear-gradient(135deg, var(--color-primary-gold-400), transparent 60%, #16a34a)' }} />
-                        <img
+                        <Image
                             src={fotoTes}
                             alt="Ifrad - Front-End Developer"
-                            className="relative z-10 w-full aspect-[3/4] object-cover object-right rounded-[18px]"
+                            fill
+                            className="z-10 object-cover object-right rounded-[18px]"
                         />
                     </div>
 

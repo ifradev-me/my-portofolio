@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const LayananSection = () => {
   const userTotal = 100;
 
@@ -89,10 +91,11 @@ const LayananSection = () => {
             >
               {/* Image */}
               <div className="relative h-52 overflow-hidden">
-                <img
+                <Image
                   src={l.img}
                   alt={l.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 {/* Gradient overlay */}
                 <div className="absolute inset-0"

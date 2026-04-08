@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const ProjectItem = ({
     project = {
         image: 'https://picsum.photos/200/300',
@@ -82,10 +84,11 @@ const ProjectItem = ({
 
                 {/* Project Image Container */}
                 <div className="relative h-48 md:h-56 overflow-hidden">
-                    <img
+                    <Image
                         src={project.image}
                         alt={project.name}
-                        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
+                        fill
+                        className="object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
                     />
 
                     {/* Gradient Overlay */}
