@@ -27,12 +27,12 @@ const Togglebutton = ({ isToggled }) => {
         />
 
         {/* Ball */}
-        <div 
+        <div
           className={`
-            absolute top-0.5 w-6 h-6 rounded-full shadow-xl text-[16px] text-center text-black
-            transition-transform duration-500 ease-out shadow-background-600 bg-radial from-background-300 to-white border-0
+            absolute top-0.5 w-6 h-6 rounded-full shadow-xl text-[14px] font-bold leading-6 text-center text-background-900
+            transition-transform duration-500 ease-out bg-white border-0
             ${isToggled ? 'transform translate-x-7' : 'transform translate-x-0.5'}
-          `}>{`${isToggled ? '2' : '1'}`}</div>
+          `}>{isToggled ? '2' : '1'}</div>
       </div>
     </div>
   );

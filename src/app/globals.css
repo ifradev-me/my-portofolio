@@ -4,12 +4,12 @@
 
 /* CSS variables untuk inline styles di heroSec.jsx */
 :root {
-  --color-primary-gold-200: #FDE68A;
-  --color-primary-gold-300: #FCD34D;
-  --color-primary-gold-400: #FBBF24;
-  --color-primary-gold-500: #F59E0B;
-  --color-background-700: #374151;
-  --color-background-950: #0F172A;
+  --color-primary-gold-200: #ffed8a;
+  --color-primary-gold-300: #ffe55c;
+  --color-primary-gold-400: #ffd60a;
+  --color-primary-gold-500: #ffc300;
+  --color-background-700: #004080;
+  --color-background-950: #001a44;
 }
 
 @layer utilities {

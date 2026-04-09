@@ -42,14 +42,14 @@ export default function AdminTestimoniPage() {
     <div className="max-w-4xl">
       <div className="mb-8">
         <h1 className="font-header font-bold text-text-50 text-3xl">Testimoni</h1>
-        <p className="font-body text-text-500 text-sm mt-1">
+        <p className="font-body text-text-400 text-sm mt-1">
           {approved.length} approved · {pending.length} pending
         </p>
       </div>
 
       {pending.length > 0 && (
         <div className="mb-8">
-          <h2 className="font-body text-xs uppercase tracking-widest text-text-600 font-semibold mb-3">
+          <h2 className="font-body text-xs uppercase tracking-widest text-text-400 font-semibold mb-3">
             Pending Review ({pending.length})
           </h2>
           <div className="space-y-3">
@@ -67,7 +67,7 @@ export default function AdminTestimoniPage() {
           Approved ({approved.length})
         </h2>
         {approved.length === 0 ? (
-          <p className="font-body text-text-700 text-sm py-8 text-center">Belum ada testimoni approved.</p>
+          <p className="font-body text-text-400 text-sm py-8 text-center">Belum ada testimoni approved.</p>
         ) : (
           <div className="space-y-3">
             {approved.map(t => (
@@ -95,7 +95,7 @@ function TestimoniRow({ t, handleToggleApprove, handleDelete }) {
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap mb-0.5">
             <p className="font-body text-text-100 text-sm font-semibold">{t.name}</p>
-            <p className="font-body text-text-600 text-xs">
+            <p className="font-body text-text-400 text-xs">
               {t.role}{t.company ? ` · ${t.company}` : ''}
             </p>
             <Stars rating={t.rating} />
@@ -106,7 +106,7 @@ function TestimoniRow({ t, handleToggleApprove, handleDelete }) {
               {t.approved ? 'Approved' : 'Pending'}
             </span>
           </div>
-          <p className="font-body text-text-500 text-xs leading-relaxed line-clamp-2 mt-1">
+          <p className="font-body text-text-300 text-xs leading-relaxed line-clamp-2 mt-1">
             {t.content}
           </p>
         </div>

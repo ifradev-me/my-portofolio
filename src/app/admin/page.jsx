@@ -17,7 +17,7 @@ export default function AdminDashboard() {
     <div className="max-w-4xl">
       <div className="mb-8">
         <h1 className="font-header font-bold text-text-50 text-3xl">Dashboard</h1>
-        <p className="font-body text-text-500 text-sm mt-1">Selamat datang kembali, Ifrad.</p>
+        <p className="font-body text-text-400 text-sm mt-1">Selamat datang kembali, Ifrad.</p>
       </div>
 
       {/* Warning banner */}
@@ -50,7 +50,7 @@ export default function AdminDashboard() {
               + Post Baru
             </Link>
           </div>
-          <p className="font-body text-text-500 text-sm mb-4">
+          <p className="font-body text-text-400 text-sm mb-4">
             {posts.length} total post — {publishedPosts} published, {draftPosts} draft
           </p>
           <Link href="/admin/blog"
@@ -69,7 +69,7 @@ export default function AdminDashboard() {
               </span>
             )}
           </div>
-          <p className="font-body text-text-500 text-sm mb-4">
+          <p className="font-body text-text-400 text-sm mb-4">
             {testimonials.length} total — {approvedTestimonials} approved, {pendingTestimonials} menunggu review
           </p>
           <Link href="/admin/testimoni"
@@ -87,12 +87,12 @@ function StatCard({ label, value, color }) {
     gold: 'text-primary-gold-400',
     blue: 'text-primary-blue-400',
     red: 'text-red-400',
-    dim: 'text-text-500',
+    dim: 'text-text-400',
   }
   return (
     <div className="p-4 rounded-xl border border-background-700 bg-background-900">
       <p className={`font-header font-bold text-3xl ${colors[color] ?? colors.dim}`}>{value}</p>
-      <p className="font-body text-text-600 text-xs mt-1">{label}</p>
+      <p className="font-body text-text-400 text-xs mt-1">{label}</p>
     </div>
   )
 }
