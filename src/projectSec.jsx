@@ -1,7 +1,7 @@
 'use client'
 
 import ProjectItem from "./projectItem"
-import { useState, useEffect, useRef } from "react"
+import { useState, useRef } from "react"
 
 const ProjectSection = () => {
     const projectList = [
@@ -92,78 +92,16 @@ const ProjectSection = () => {
 
     const [index, setIndex] = useState(0)
     const [tutorial, setTutorial] = useState(true)
-    const [touchInfo, setTouchInfo] = useState({ start: null, current: null, end: null })
     const containerRef = useRef(null)
 
-
-    const scrollToItem = (itemIndex) => {
+    const handleScroll = () => {
         if (containerRef.current) {
-            const containerWidth = containerRef.current.offsetWidth
-            const targetLeft = itemIndex * containerWidth
-            containerRef.current.scrollTo({
-                left: targetLeft,
-                behavior: 'smooth'
-            })
+            const scrollLeft = containerRef.current.scrollLeft
+            const itemWidth = containerRef.current.offsetWidth
+            const newIndex = Math.round(scrollLeft / itemWidth)
+            if (newIndex !== index) setIndex(newIndex)
         }
     }
-
-    const updateIndex = (newIndex) => {
-        const clampedIndex = Math.max(0, Math.min(newIndex, projectList.length - 1))
-        setIndex(clampedIndex)
-        scrollToItem(clampedIndex)
-    }
-
-    
-    const [touchStartTime, setTouchStartTime] = useState(null)
-
-    const handleTouchStart = (e) => {
-        if (e.targetTouches && e.targetTouches.length > 0) {
-            const touch = e.targetTouches[0]
-            const startX = touch.clientX
-            const startTime = Date.now() 
-            setTouchInfo(prev => ({ ...prev, start: startX, current: startX }))
-            setTouchStartTime(startTime)
-        }
-    }
-
-    const handleTouchEnd = (e) => {
-        if (e.changedTouches && e.changedTouches.length > 0) {
-            const touch = e.changedTouches[0]
-            const endX = touch.clientX
-            const endTime = Date.now() // Catat waktu selesai
-            
-            const distance = touchInfo.start - endX
-            const deltaTime = endTime - touchStartTime // Selisih waktu
-            const velocity = Math.abs(distance) / deltaTime // Kecepatan (px/ms)
-            
-            // Jika swipe cepat, threshold jadi lebih rendah
-            const minDistance = velocity > 0.3 ? 30 : 80
-            
-            if (Math.abs(distance) > minDistance) {
-                if (distance > 0) {
-                    updateIndex(index + 1)
-                } else {
-                    updateIndex(index - 1)
-                }
-            }
-        }
-        setTimeout(() => {
-            setTouchInfo({ start: null, current: null, end: null })
-        }, 1000)
-    }
-    const handleTouchMove = (e) => {
-        if (e.targetTouches && e.targetTouches.length > 0) {
-            const touch = e.targetTouches[0]
-            const currentX = touch.clientX
-            setTouchInfo(prev => ({ ...prev, current: currentX }))
-        }
-    }
-
-    
-
-    useEffect(() => {
-        scrollToItem(index)
-    }, [])
 
 
     return (
@@ -212,17 +150,16 @@ const ProjectSection = () => {
         </div>
         
         {/* Main container */}
-        <div 
+        <div
             ref={containerRef}
             className="flex w-full h-full overflow-x-auto overflow-y-hidden snap-x snap-mandatory scrollbar-hide"
             style={{
                 scrollbarWidth: 'none',
                 msOverflowStyle: 'none',
-                WebkitOverflowScrolling: 'touch'
+                WebkitOverflowScrolling: 'touch',
+                scrollSnapType: 'x mandatory',
             }}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
+            onScroll={handleScroll}
         >
             {projectList.map((project, idx) => (
                 <div 

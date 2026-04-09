@@ -22,12 +22,12 @@ const KontakForm = () => {
     <div className="lg:col-span-3">
       <div className="p-px rounded-3xl"
         style={{ background: 'linear-gradient(135deg, rgba(255,195,0,0.4), rgba(0,41,107,0.3) 60%, rgba(255,195,0,0.1))' }}>
-        <div className="bg-white rounded-[23px] p-6 sm:p-8">
+        <div className="bg-background-900 rounded-[23px] p-6 sm:p-8">
           <form onSubmit={onSubmit} className="space-y-5">
 
             <div className="grid sm:grid-cols-2 gap-5">
               <div>
-                <label className="font-body block text-text-500 text-xs uppercase tracking-wider font-semibold mb-1.5">
+                <label className="font-body block text-text-400 text-xs uppercase tracking-wider font-semibold mb-1.5">
                   Nama
                 </label>
                 <input
@@ -36,23 +36,23 @@ const KontakForm = () => {
                   placeholder="Nama kamu"
                   value={nama}
                   onChange={(e) => setNama(e.target.value)}
-                  className="w-full bg-background-50 border border-primary-gold-200 rounded-xl px-4 py-3
-                    font-body text-sm text-primary-blue placeholder:text-text-400
-                    focus:outline-none focus:border-primary-gold-400 focus:ring-1 focus:ring-primary-gold-200
-                    transition-all duration-200 caret-primary-gold-600"
+                  className="w-full bg-background-800 border border-background-600 rounded-xl px-4 py-3
+                    font-body text-sm text-text-100 placeholder:text-text-600
+                    focus:outline-none focus:border-primary-gold-500 focus:ring-1 focus:ring-primary-gold-800
+                    transition-all duration-200 caret-primary-gold-400"
                 />
               </div>
               <div>
-                <label className="font-body block text-text-500 text-xs uppercase tracking-wider font-semibold mb-1.5">
+                <label className="font-body block text-text-400 text-xs uppercase tracking-wider font-semibold mb-1.5">
                   Nomor WhatsApp
                 </label>
                 <input
                   type="tel"
                   placeholder="628123456789"
-                  className="w-full bg-background-50 border border-primary-gold-200 rounded-xl px-4 py-3
-                    font-body text-sm text-primary-blue placeholder:text-text-400
-                    focus:outline-none focus:border-primary-gold-400 focus:ring-1 focus:ring-primary-gold-200
-                    transition-all duration-200 caret-primary-gold-600"
+                  className="w-full bg-background-800 border border-background-600 rounded-xl px-4 py-3
+                    font-body text-sm text-text-100 placeholder:text-text-600
+                    focus:outline-none focus:border-primary-gold-500 focus:ring-1 focus:ring-primary-gold-800
+                    transition-all duration-200 caret-primary-gold-400"
                 />
               </div>
             </div>
@@ -65,9 +65,9 @@ const KontakForm = () => {
                 required
                 value={kebutuhan}
                 onChange={(e) => setKebutuhan(e.target.value)}
-                className="w-full bg-background-50 border border-primary-gold-200 rounded-xl px-4 py-3
-                  font-body text-sm text-primary-blue-700
-                  focus:outline-none focus:border-primary-gold-400 focus:ring-1 focus:ring-primary-gold-200
+                className="w-full bg-background-800 border border-background-600 rounded-xl px-4 py-3
+                  font-body text-sm text-text-100
+                  focus:outline-none focus:border-primary-gold-500 focus:ring-1 focus:ring-primary-gold-800
                   transition-all duration-200 appearance-none cursor-pointer"
               >
                 <option value="">Pilih layanan...</option>
@@ -88,10 +88,10 @@ const KontakForm = () => {
                 placeholder="Ceritakan kebutuhan atau idemu di sini..."
                 value={pesan}
                 onChange={(e) => setPesan(e.target.value)}
-                className="w-full bg-background-50 border border-primary-gold-200 rounded-xl px-4 py-3
-                  font-body text-sm text-primary-blue placeholder:text-text-400 resize-none
-                  focus:outline-none focus:border-primary-gold-400 focus:ring-1 focus:ring-primary-gold-200
-                  transition-all duration-200 caret-primary-gold-600"
+                className="w-full bg-background-800 border border-background-600 rounded-xl px-4 py-3
+                  font-body text-sm text-text-100 placeholder:text-text-600 resize-none
+                  focus:outline-none focus:border-primary-gold-500 focus:ring-1 focus:ring-primary-gold-800
+                  transition-all duration-200 caret-primary-gold-400"
               />
             </div>
 
@@ -99,7 +99,7 @@ const KontakForm = () => {
               type="submit"
               className={`w-full py-4 rounded-xl font-body font-bold text-base transition-all duration-300
                 ${sent
-                  ? 'bg-background-200 text-text-500 cursor-default'
+                  ? 'bg-background-700 text-text-400 cursor-default'
                   : 'bg-primary-blue text-background-50 hover:bg-primary-blue-700 hover:-translate-y-0.5 hover:shadow-lg'
                 }`}
             >
