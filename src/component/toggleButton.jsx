@@ -13,7 +13,7 @@ const Togglebutton = ({ isToggled }) => {
           className={`
             absolute top-0.5 w-6 h-6  rounded-full shadow-lg
             transition-colors duration-600 ease
-            ${isToggled ? 'bg-gradient-to-r from-primary-blue-800 to-highlight-800 ' : 'bg-gradient-to-r from-background-800 to-black'}
+            ${isToggled ? 'bg-gradient-to-r from-primary-blue-800 to-primary-blue-900 ' : 'bg-gradient-to-r from-background-800 to-black'}
           `}
         />
 
@@ -22,7 +22,7 @@ const Togglebutton = ({ isToggled }) => {
           className={`
             absolute top-0.5 right-0.5 w-6 h-6 rounded-full shadow-lg
             transition-colors duration-600 ease
-            ${!isToggled ? 'bg-radial from-highlight-200 to-background-600 ' : 'bg-radial from-background-800 to-black'}
+            ${!isToggled ? 'bg-gradient-to-r from-primary-gold-300 to-background-600 ' : 'bg-gradient-to-r from-background-800 to-black'}
           `}
         />
 

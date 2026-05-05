@@ -136,43 +136,43 @@ const Navbar = () => {
                     <div className="hidden md:block">
                         <ul className="flex space-x-8">
                             <li>
-                                <a href="/#home" className="flex items-center space-x-2 text-text-100 hover:text-accent-500 transition-colors">
+                                <a href="/#home" className="flex items-center space-x-2 text-text-100 hover:text-primary-gold-400 transition-colors">
                                     <HomeIcon className="w-5 h-5" />
                                     <span>Home</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/#project" className="flex items-center space-x-2 text-text-100 hover:text-accent-500 transition-colors">
+                                <a href="/#project" className="flex items-center space-x-2 text-text-100 hover:text-primary-gold-400 transition-colors">
                                     <ProjectsIcon className="w-5 h-5" />
                                     <span>Project</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/#layanan" className="flex items-center space-x-2 text-text-100 hover:text-accent-500 transition-colors">
+                                <a href="/#layanan" className="flex items-center space-x-2 text-text-100 hover:text-primary-gold-400 transition-colors">
                                     <SkillsIcon className="w-5 h-5" />
                                     <span>Layanan</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/#about" className="flex items-center space-x-2 text-text-100 hover:text-accent-500 transition-colors">
+                                <a href="/#about" className="flex items-center space-x-2 text-text-100 hover:text-primary-gold-400 transition-colors">
                                     <AboutIcon className="w-5 h-5" />
                                     <span>About</span>
                                 </a>
                             </li>
                             <li>
-                                <Link href="/testimoni" className="flex items-center space-x-2 text-text-100 hover:text-accent-500 transition-colors">
+                                <Link href="/testimoni" className="flex items-center space-x-2 text-text-100 hover:text-primary-gold-400 transition-colors">
                                     <TestimonialIcon className="w-5 h-5" />
                                     <span>Testimoni</span>
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/blog" className="flex items-center space-x-2 text-text-100 hover:text-accent-500 transition-colors">
+                                <Link href="/blog" className="flex items-center space-x-2 text-text-100 hover:text-primary-gold-400 transition-colors">
                                     <BlogIcon className="w-5 h-5" />
                                     <span>Blog</span>
                                 </Link>
                             </li>
                             <li>
-                                <a href="/#kontak" className="flex items-center space-x-2 text-text-100 hover:text-accent-500 transition-colors">
+                                <a href="/#kontak" className="flex items-center space-x-2 text-text-100 hover:text-primary-gold-400 transition-colors">
                                     <ContactIcon className="w-5 h-5" />
                                     <span>Kontak</span>
                                 </a>
@@ -184,7 +184,7 @@ const Navbar = () => {
                     <div className="md:hidden">
                         <button 
                             onClick={handleToggle}
-                            className="text-text-100 hover:text-accent-500 focus:outline-none"
+                            className="text-text-100 hover:text-primary-gold-400 focus:outline-none"
                         >
                             <BurgerIcon className="w-6 h-6" />
                         </button>

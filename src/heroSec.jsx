@@ -72,12 +72,12 @@ const HeroSection = () => {
                     background-clip: text;
                 }
                 .h-cta-btn {
-                    background: linear-gradient(135deg, #16a34a, #15803d);
+                    background: linear-gradient(135deg, #1d4ed8, #1e40af);
                     transition: transform 0.3s ease, box-shadow 0.3s ease;
                 }
                 .h-cta-btn:hover {
                     transform: scale(1.05);
-                    box-shadow: 0 20px 60px rgba(22,163,74,0.45);
+                    box-shadow: 0 20px 60px rgba(0,64,128,0.5);
                 }
             `}</style>
 
@@ -148,7 +148,7 @@ const HeroSection = () => {
                 <div className="relative mt-6 h-img">
                     <div className="relative mx-auto w-3/4 max-w-[280px] aspect-[3/4]">
                         <div className="absolute -inset-[2px] rounded-[20px] z-0"
-                            style={{ background: 'linear-gradient(135deg, var(--color-primary-gold-400), transparent 60%, #16a34a)' }} />
+                            style={{ background: 'linear-gradient(135deg, var(--color-primary-gold-400), transparent 60%, #004080)' }} />
                         <Image
                             src={fotoTes}
                             alt="Ifrad"
@@ -267,7 +267,7 @@ const HeroSection = () => {
                     {/* Image frame */}
                     <div className="h-float relative mx-auto w-[85%] aspect-[3/4]">
                         <div className="absolute -inset-[2px] rounded-[20px] z-0"
-                            style={{ background: 'linear-gradient(135deg, var(--color-primary-gold-400), transparent 60%, #16a34a)' }} />
+                            style={{ background: 'linear-gradient(135deg, var(--color-primary-gold-400), transparent 60%, #004080)' }} />
                         <Image
                             src={fotoTes}
                             alt="Ifrad - Front-End Developer"
@@ -288,7 +288,7 @@ const HeroSection = () => {
 
                     {/* Floating card – WA Bot */}
                     <div className="h-cu2 absolute top-[12%] -right-[5%] bg-background-950/90 border border-background-700 rounded-2xl px-5 py-3 backdrop-blur-xl">
-                        <div className="font-header font-bold text-green-400 leading-none" style={{ fontSize: '1.6rem' }}>WA Bot</div>
+                        <div className="font-header font-bold text-primary-gold-400 leading-none" style={{ fontSize: '1.6rem' }}>WA Bot</div>
                         <div className="font-body text-text-300 text-xs mt-0.5">Automation Expert</div>
                     </div>
                 </div>

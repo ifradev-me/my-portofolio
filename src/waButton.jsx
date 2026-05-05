@@ -14,9 +14,9 @@ const WhatsAppCardButton = ({
       target="_blank"
       rel="noopener noreferrer"
       className={`
-        relative w-full block p-1.5 bg-gradient-to-r from-green-500 to-green-600 
-        text-white rounded-lg font-semibold text-center
-        hover:from-green-600 hover:to-green-700 
+        relative w-full block p-1.5 bg-gradient-to-r from-primary-gold-500 to-primary-gold-400
+        text-background-950 rounded-lg font-semibold text-center
+        hover:from-primary-gold-400 hover:to-primary-gold-500
         transform hover:scale-[1.02] transition-all duration-300
         overflow-hidden group
         ${className}
@@ -45,18 +45,18 @@ const WhatsAppFloatingButton = ({
     <div className={`fixed ${position} z-10 ignore`}>
       {/* Wave rings */}
       <div className="absolute inset-0 animate-ping">
-        <div className="w-14 h-14 bg-green-500 rounded-full opacity-20"></div>
+        <div className="w-14 h-14 bg-primary-gold-400 rounded-full opacity-20"></div>
       </div>
       <div className="absolute inset-0 animate-pulse">
-        <div className="w-14 h-14 bg-green-500 rounded-full opacity-40 animate-ping" style={{animationDelay: '0.87s'}}></div>
+        <div className="w-14 h-14 bg-primary-gold-400 rounded-full opacity-40 animate-ping" style={{animationDelay: '0.87s'}}></div>
       </div>
-      
+
       <a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="
-          relative w-14 h-14 bg-green-500 hover:bg-green-600 
+          relative w-14 h-14 bg-primary-gold-500 hover:bg-primary-gold-400
           rounded-full shadow-lg hover:shadow-xl
           flex items-center justify-center
           transform hover:scale-110 transition-all duration-300
@@ -65,7 +65,7 @@ const WhatsAppFloatingButton = ({
           animation: 'heartbeat 2s ease-in-out infinite'
         }}
       >
-        <ChatIcon className="w-7 h-7 text-white" />
+        <ChatIcon className="w-7 h-7 text-background-950" />
       </a>
     </div>
   );

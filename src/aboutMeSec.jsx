@@ -3,12 +3,12 @@ import Link from 'next/link'
 const techStack = [
   { name: 'React',        color: 'text-primary-blue-300   border-primary-blue-800   bg-primary-blue-950/50'   },
   { name: 'Next.js',      color: 'text-text-200           border-background-600     bg-background-800/50'      },
-  { name: 'Node.js',      color: 'text-green-400          border-green-900          bg-green-950/40'           },
+  { name: 'Node.js',      color: 'text-primary-blue-300   border-primary-blue-800   bg-primary-blue-950/40'   },
   { name: 'TailwindCSS',  color: 'text-primary-blue-400   border-primary-blue-900   bg-primary-blue-950/40'   },
-  { name: 'baileys.js',   color: 'text-green-300          border-green-800          bg-green-950/30'           },
+  { name: 'baileys.js',   color: 'text-primary-gold-400   border-primary-gold-800   bg-primary-gold-950/30'   },
   { name: 'Python',       color: 'text-primary-gold-400   border-primary-gold-900   bg-primary-gold-950/30'   },
   { name: 'Express',      color: 'text-text-300           border-background-600     bg-background-800/40'      },
-  { name: 'MongoDB',      color: 'text-green-400          border-green-900          bg-green-950/40'           },
+  { name: 'MongoDB',      color: 'text-primary-blue-300   border-primary-blue-800   bg-primary-blue-950/40'   },
 ]
 
 const AboutMeSection = () => {

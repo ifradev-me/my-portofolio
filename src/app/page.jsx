@@ -11,7 +11,7 @@ export default function Page() {
   return (
     <>
       <main className='h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth'>
-        <SectionWrapper classList="bg-gradient-to-b from-highlight-700 to-background-950 via-background-950">
+        <SectionWrapper classList="bg-background-950">
           <div className="snap-start" id="home">
             <HeroSection />
           </div>

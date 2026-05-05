@@ -95,9 +95,9 @@ const KontakSection = () => {
             </div>
 
             {/* Online badge */}
-            <div className="flex items-center gap-3 p-4 rounded-2xl bg-background-800/40 border border-green-800/50">
-              <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse flex-shrink-0 inline-block" />
-              <p className="font-body text-green-400 text-sm font-medium">
+            <div className="flex items-center gap-3 p-4 rounded-2xl bg-background-800/40 border border-primary-gold-800/50">
+              <span className="w-2.5 h-2.5 rounded-full bg-primary-gold-400 animate-pulse flex-shrink-0 inline-block" />
+              <p className="font-body text-primary-gold-400 text-sm font-medium">
                 Biasanya membalas dalam <strong>1 jam</strong>
               </p>
             </div>

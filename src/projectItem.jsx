@@ -57,7 +57,7 @@ const ProjectItem = ({
                                 href={project.demoUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 bg-gradient-to-r from-border-gold to-yellow-500 text-background-950 py-3 px-6 rounded-xl font-semibold hover:from-yellow-500 hover:to-border-gold transition-all duration-300 text-sm"
+                                className="inline-flex items-center gap-2 bg-gradient-to-r from-primary-gold-500 to-primary-gold-400 text-background-950 py-3 px-6 rounded-xl font-semibold hover:from-primary-gold-400 hover:to-primary-gold-500 transition-all duration-300 text-sm"
                             >
                                 Demo
                             </a>
@@ -97,15 +97,15 @@ const ProjectItem = ({
                     {/* Status Badge — dinamis */}
                     <div className="absolute top-4 right-4">
                         {project.status === 'beta' ? (
-                            <span className="px-3 py-1 bg-blue-500/20 border border-blue-500/50 text-blue-400 text-xs rounded-full font-medium backdrop-blur-sm">Beta</span>
+                            <span className="px-3 py-1 bg-primary-blue-500/20 border border-primary-blue-500/50 text-primary-blue-300 text-xs rounded-full font-medium backdrop-blur-sm">Beta</span>
                         ) : project.status === 'internal' ? (
-                            <span className="px-3 py-1 bg-purple-500/20 border border-purple-500/50 text-purple-400 text-xs rounded-full font-medium backdrop-blur-sm">Internal</span>
+                            <span className="px-3 py-1 bg-background-700/40 border border-background-600 text-text-300 text-xs rounded-full font-medium backdrop-blur-sm">Internal</span>
                         ) : project.status === 'pending' ? (
-                            <span className="px-3 py-1 bg-orange-500/20 border border-orange-500/50 text-orange-400 text-xs rounded-full font-medium backdrop-blur-sm">Pending Approval</span>
+                            <span className="px-3 py-1 bg-primary-gold-950/50 border border-primary-gold-700/50 text-primary-gold-400 text-xs rounded-full font-medium backdrop-blur-sm">Pending</span>
                         ) : project.status === 'development' ? (
                             <span className="px-3 py-1 bg-primary-gold-950/50 border border-primary-gold-700/50 text-primary-gold-400 text-xs rounded-full font-medium backdrop-blur-sm">In Dev</span>
                         ) : (
-                            <span className="px-3 py-1 bg-green-500/20 border border-green-500/50 text-green-400 text-xs rounded-full font-medium backdrop-blur-sm">Completed</span>
+                            <span className="px-3 py-1 bg-primary-blue-500/20 border border-primary-blue-500/50 text-primary-blue-300 text-xs rounded-full font-medium backdrop-blur-sm">Completed</span>
                         )}
                     </div>
                 </div>
@@ -140,7 +140,7 @@ const ProjectItem = ({
                                     href={project.demoUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 bg-gradient-to-r from-border-gold to-yellow-500 text-background-950 py-2 px-4 rounded-lg font-semibold text-sm hover:from-yellow-500 hover:to-border-gold transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
+                                    className="inline-flex items-center gap-2 bg-gradient-to-r from-primary-gold-500 to-primary-gold-400 text-background-950 py-2 px-4 rounded-lg font-semibold text-sm hover:from-primary-gold-400 hover:to-primary-gold-500 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
                                 >
                                     Demo
                                 </a>
