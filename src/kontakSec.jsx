@@ -1,15 +1,16 @@
 import { ChatIcon, GmailIcon, InstagramIcon, LinkedInIcon, GitHubIcon } from './component/Icon';
 import KontakForm from './KontakForm';
+import { withFallback, waLink, mailLink, prettyWa } from './lib/sanity/contact.helpers';
 
-const socialLinks = [
-  { href: "https://www.instagram.com/radilsyaiff/",                  Icon: InstagramIcon, label: "Instagram" },
-  { href: "https://www.linkedin.com/in/ifradil-syaifa-218a252a7/",   Icon: LinkedInIcon,  label: "LinkedIn"  },
-  { href: "https://github.com/ifradev-me",                           Icon: GitHubIcon,    label: "GitHub"    },
-  { href: "mailto:ifradlisyaifa03@gmail.com",                        Icon: GmailIcon,     label: "Gmail"     },
-  { href: "https://wa.me/6282260740023",                             Icon: ChatIcon,      label: "WhatsApp"  },
-];
-
-const KontakSection = () => {
+const KontakSection = ({ contact }) => {
+  const c = withFallback(contact)
+  const socialLinks = [
+    { href: c.instagram, Icon: InstagramIcon, label: 'Instagram' },
+    { href: c.linkedin,  Icon: LinkedInIcon,  label: 'LinkedIn'  },
+    { href: c.github,    Icon: GitHubIcon,    label: 'GitHub'    },
+    { href: mailLink(c), Icon: GmailIcon,     label: 'Gmail'     },
+    { href: waLink(c),   Icon: ChatIcon,      label: 'WhatsApp'  },
+  ].filter(s => s.href)
 
   return (
     <section className="relative min-h-screen py-20 px-5 sm:px-8 lg:px-16 overflow-hidden bg-background-950">
@@ -60,8 +61,8 @@ const KontakSection = () => {
 
             {/* Contact cards */}
             {[
-              { emoji: "📱", label: "WhatsApp", val: "+62 822-6074-0023", href: "https://wa.me/6282260740023" },
-              { emoji: "✉️", label: "Email", val: "ifradlisyaifa03@gmail.com", href: "mailto:ifradlisyaifa03@gmail.com" },
+              { emoji: "📱", label: "WhatsApp", val: prettyWa(c), href: waLink(c) },
+              { emoji: "✉️", label: "Email",    val: c.email,     href: mailLink(c) },
             ].map(({ emoji, label, val, href }) => (
               <a key={label} href={href} target="_blank" rel="noreferrer"
                 className="flex items-center gap-4 p-4 rounded-2xl border border-background-700
@@ -98,7 +99,7 @@ const KontakSection = () => {
             <div className="flex items-center gap-3 p-4 rounded-2xl bg-background-800/40 border border-primary-gold-800/50">
               <span className="w-2.5 h-2.5 rounded-full bg-primary-gold-400 animate-pulse flex-shrink-0 inline-block" />
               <p className="font-body text-primary-gold-400 text-sm font-medium">
-                Biasanya membalas dalam <strong>1 jam</strong>
+                Biasanya membalas dalam <strong>{c.responseTime}</strong>
               </p>
             </div>
           </div>

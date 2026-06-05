@@ -6,14 +6,23 @@ import LayananSection from '@/layananSec'
 import KontakSection from '@/kontakSec'
 import Footer from '@/footer'
 import { WhatsAppFloatingButton } from '@/waButton'
+import { getProjects, getServices, getContact } from '@/lib/sanity/queries'
 
-export default function Page() {
+export const revalidate = 60
+
+export default async function Page() {
+  const [projects, services, contact] = await Promise.all([
+    getProjects(),
+    getServices(),
+    getContact(),
+  ])
+
   return (
     <>
-      <main className='h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth'>
+      <main className='lg:h-auto lg:snap-none lg:overflow-y-visible h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth'>
         <SectionWrapper classList="bg-background-950">
           <div className="snap-start" id="home">
-            <HeroSection />
+            <HeroSection contact={contact} />
           </div>
           <div className="snap-start" id="about">
             <AboutMeSection />
@@ -22,22 +31,22 @@ export default function Page() {
 
         <SectionWrapper classList="bg-background-50">
           <div className="snap-start" id="project">
-            <ProjectSection />
+            <ProjectSection projects={projects} />
           </div>
           <div className="snap-start" id="layanan">
-            <LayananSection />
+            <LayananSection services={services} contact={contact} />
           </div>
           <div className="snap-start" id="kontak">
-            <KontakSection />
+            <KontakSection contact={contact} />
           </div>
         </SectionWrapper>
 
         <section className="snap-end">
-          <Footer />
+          <Footer contact={contact} />
         </section>
       </main>
 
-      <WhatsAppFloatingButton />
+      <WhatsAppFloatingButton contact={contact} />
     </>
   )
 }

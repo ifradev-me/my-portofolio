@@ -1,11 +1,13 @@
-import { ChatIcon } from './component/Icon'; // sesuaikan path import
+import { ChatIcon } from './component/Icon';
+import { withFallback } from './lib/sanity/contact.helpers';
 
 // Button 1: Card CTA dengan animasi bersinar kilau
-const WhatsAppCardButton = ({ 
+const WhatsAppCardButton = ({
   message = "Halo, saya tertarik dengan layanan Anda",
-  phoneNumber = "6281234567890",
+  contact,
   className = ""
 }) => {
+  const phoneNumber = String(withFallback(contact).whatsapp).replace(/\D/g, '');
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
   
   return (
@@ -33,12 +35,13 @@ const WhatsAppCardButton = ({
   );
 };
 
-// Button 2: Floating button dengan animasi berdetak dan wave (DIPERBAIKI)
-const WhatsAppFloatingButton = ({ 
+// Button 2: Floating button dengan animasi berdetak dan wave
+const WhatsAppFloatingButton = ({
   message = "Halo, saya tertarik dengan layanan Anda",
-  phoneNumber = "6281234567890",
+  contact,
   position = "bottom-6 right-6"
 }) => {
+  const phoneNumber = String(withFallback(contact).whatsapp).replace(/\D/g, '');
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
   
   return (

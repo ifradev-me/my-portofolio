@@ -1,10 +1,15 @@
 import Link from 'next/link'
-import { getApprovedTestimonials } from '@/lib/testimonials'
+import Image from 'next/image'
+import { getTestimonials, getContact } from '@/lib/sanity/queries'
+import { urlFor } from '@/lib/sanity/image'
+import { waLink } from '@/lib/sanity/contact.helpers'
 
 export const metadata = {
   title: 'Testimoni — Ifrad Dev',
   description: 'Apa kata klien tentang layanan Ifrad Dev',
 }
+
+export const revalidate = 60
 
 function StarRating({ rating }) {
   return (
@@ -19,8 +24,12 @@ function StarRating({ rating }) {
   )
 }
 
-export default function TestimoniPage() {
-  const testimonials = getApprovedTestimonials()
+export default async function TestimoniPage() {
+  const [testimonials, contact] = await Promise.all([
+    getTestimonials(),
+    getContact(),
+  ])
+  const wa = waLink(contact)
 
   return (
     <main className="min-h-screen bg-background-50 py-20 px-5 sm:px-8 lg:px-16 relative overflow-hidden">
@@ -66,7 +75,7 @@ export default function TestimoniPage() {
         ) : (
           <div className="grid md:grid-cols-2 gap-5">
             {testimonials.map((t) => (
-              <div key={t.filename}
+              <div key={t._id}
                 className="p-6 rounded-2xl border border-primary-gold-200 bg-white
                   hover:border-primary-gold-400 transition-all duration-300 shadow-sm">
 
@@ -75,24 +84,31 @@ export default function TestimoniPage() {
 
                 {/* Content */}
                 <p className="font-body text-primary-blue-700 text-sm leading-relaxed mt-4 mb-6">
-                  &ldquo;{t.content}&rdquo;
+                  &ldquo;{t.message}&rdquo;
                 </p>
 
                 {/* Author */}
                 <div className="flex items-center gap-3 pt-4 border-t border-primary-gold-200">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary-gold-500 to-primary-blue
-                    flex items-center justify-center text-white font-header font-bold text-lg flex-shrink-0">
-                    {t.name?.[0]?.toUpperCase()}
-                  </div>
+                  {t.image ? (
+                    <Image
+                      src={urlFor(t.image).width(80).height(80).auto('format').url()}
+                      alt={t.name}
+                      width={40}
+                      height={40}
+                      className="w-10 h-10 rounded-full object-cover flex-shrink-0"
+                    />
+                  ) : (
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary-gold-500 to-primary-blue
+                      flex items-center justify-center text-white font-header font-bold text-lg flex-shrink-0">
+                      {t.name?.[0]?.toUpperCase()}
+                    </div>
+                  )}
                   <div>
                     <p className="font-body text-primary-blue text-sm font-semibold">{t.name}</p>
-                    <p className="font-body text-text-500 text-xs">
-                      {t.role}{t.company ? ` · ${t.company}` : ''}
-                    </p>
+                    {t.role && (
+                      <p className="font-body text-text-500 text-xs">{t.role}</p>
+                    )}
                   </div>
-                  <span className="ml-auto font-body text-text-400 text-xs">
-                    {new Date(t.date).toLocaleDateString('id-ID', { month: 'short', year: 'numeric' })}
-                  </span>
                 </div>
               </div>
             ))}
@@ -103,7 +119,7 @@ export default function TestimoniPage() {
         <div className="mt-14 text-center">
           <div className="inline-flex items-center gap-4 p-4 rounded-2xl bg-white border border-primary-gold-200 shadow-sm">
             <span className="font-body text-text-500 text-sm">Pernah kerja sama dengan saya?</span>
-            <a href="https://wa.me/6282260740023" target="_blank" rel="noreferrer">
+            <a href={wa} target="_blank" rel="noreferrer">
               <button className="font-body text-sm font-bold px-5 py-2.5 rounded-xl
                 bg-primary-blue text-background-50 hover:bg-primary-blue-700
                 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300">

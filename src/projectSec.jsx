@@ -1,98 +1,33 @@
 'use client'
 
 import ProjectItem from "./projectItem"
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 
-const ProjectSection = () => {
-    const projectList = [
-        {
-            image: '/botAbsen.png',
-            name: 'Bot Absensi Otomatis',
-            description: 'Bot absensi otomatis dengan integrasi notifikasi absensi lewat WhatsApp',
-            techStack: ['Express', 'MongoDB', 'Puppeteer', 'Baileys JS'],
-            githubUrl: 'https://github.com/ifradev-me/absen-auto',
-            duration: '7 weeks',
-            views: '± 112',
-            status: 'completed'
-        },
-        {
-            image: '/IoT.png',
-            name: 'IoT Dashboard',
-            description: 'Website IoT dashboard dengan visual interaktif untuk monitoring data sensor secara real-time',
-            techStack: ['React', 'Python', 'Flask', 'FastAPI', 'SQLite'],
-            demoUrl: 'https://colab.research.google.com/drive/1_KlDIy9WBLs1G07lWhXEsYok2VE7Livo',
-            duration: '3 weeks',
-            views: 'under 50',
-            status: 'completed'
-        },
-        {
-            image: '/sii.png',
-            name: 'Islamic Event Landing Page',
-            description: 'Landing page islami dengan fitur galeri foto dan testimoni untuk event SII 2025',
-            techStack: ['Bootstrap', 'Google Cloud API', 'App Script', 'Vercel'],
-            githubUrl: 'https://github.com/ifradev-me/SII-2025',
-            duration: '3 weeks',
-            views: '± 100',
-            status: 'completed'
-        },
-        {
-            image: '/culture x perkenalan budaya aceh dan umkm.png',
-            name: 'Culture X',
-            description: 'Platform pengenalan budaya Aceh dan pendampingan UMKM Aceh berbasis AI, dibangun dengan React TypeScript dan Appwrite',
-            techStack: ['React TS', 'Appwrite', 'OpenRouter'],
-            githubUrl: 'https://github.com/ifradev-me/culture-x_frontend_main',
-            duration: '~ ongoing',
-            status: 'beta'
-        },
-        {
-            image: '/fanfic translator.png',
-            name: 'Fanfic Translator',
-            description: 'Alat penerjemahan fanfic otomatis via workflow n8n dan AI, dikembangkan untuk kebutuhan internal',
-            techStack: ['n8n', 'OpenRouter'],
-            duration: '~ 2 weeks',
-            status: 'internal'
-        },
-        {
-            image: '/konsitech-platform edukasi hukum.png',
-            name: 'Konsitech',
-            description: 'Platform edukasi hukum yang membantu masyarakat memahami konstitusi dan hukum Indonesia secara mudah melalui AI',
-            techStack: ['React JS', 'Express', 'OpenRouter'],
-            githubUrl: 'https://github.com/ifradev-me/frontend-konsi-tech',
-            duration: '~ ongoing',
-            status: 'completed'
-        },
-        {
-            image: '/kroeng usk - organisasi kampus.png',
-            name: 'Kroeng USK',
-            description: 'Landing page untuk komunitas robotika engineering Universitas Syiah Kuala, sudah production namun menunggu persetujuan internal',
-            techStack: ['Next.js', 'Express'],
-            githubUrl: 'https://github.com/ifradev-me/kroeng-usk',
-            duration: '~ 3 weeks',
-            status: 'pending'
-        },
-        {
-            image: '/menu makanan warkop mjd kupi.png',
-            name: 'Warkop MJD',
-            description: 'Website menu lauk dan minuman interaktif untuk Warkop MJD, bukan sekedar landing page tapi platform menu digital',
-            techStack: ['React JS', 'Cloudflare'],
-            githubUrl: 'https://github.com/ifradev-me/demo-mjd',
-            duration: '~ 2 weeks',
-            status: 'completed'
-        },
-        {
-            image: '/nutrisight.png',
-            name: 'NutriSight',
-            description: 'Aplikasi Android untuk deteksi dan pemahaman gizi keluarga, difokuskan untuk ibu. Saat ini dalam tahap beta test terbatas',
-            techStack: ['React Native TS', 'OpenRouter'],
-            githubUrl: 'https://github.com/nutrisight-innovilage/nutrisight_apps',
-            duration: '~ ongoing',
-            status: 'beta'
-        },
-    ]
+const TUTORIAL_KEY = 'portofolio.projectTutorialSeen'
+
+const ProjectSection = ({ projects = [] }) => {
+    const projectList = projects
 
     const [index, setIndex] = useState(0)
-    const [tutorial, setTutorial] = useState(true)
+    const [tutorial, setTutorial] = useState(false)
     const containerRef = useRef(null)
+
+    useEffect(() => {
+        try {
+            if (typeof window !== 'undefined' && !window.localStorage.getItem(TUTORIAL_KEY)) {
+                setTutorial(true)
+            }
+        } catch {
+            setTutorial(true)
+        }
+    }, [])
+
+    const dismissTutorial = () => {
+        setTutorial(false)
+        try {
+            window.localStorage.setItem(TUTORIAL_KEY, '1')
+        } catch { /* localStorage unavailable */ }
+    }
 
     const handleScroll = () => {
         if (containerRef.current) {
@@ -124,6 +59,13 @@ const ProjectSection = () => {
         </p>
     </div>
 
+    {/* Empty state */}
+    {projectList.length === 0 && (
+        <div className="px-6 lg:px-12 pb-12">
+            <p className="font-body text-text-500 italic">Belum ada project. Tambahkan dari Studio.</p>
+        </div>
+    )}
+
     {/* Mobile Version - Original Code */}
     <div className="block lg:hidden">
         {/* Tutorial overlay */}
@@ -131,7 +73,7 @@ const ProjectSection = () => {
             className={`absolute inset-0 transition-opacity duration-500 ${
                 tutorial ? 'opacity-100 z-30 ignore' : 'opacity-0 pointer-events-none'
             }`}
-            onClick={() => setTutorial(false)}
+            onClick={dismissTutorial}
             style={{ background: 'radial-gradient(ellipse at center, rgba(15,15,20,0.85) 0%, rgba(15,15,20,0.4) 60%, transparent 100%)' }}
         >
             {tutorial && (
@@ -182,12 +124,6 @@ const ProjectSection = () => {
                 ))}
             </div>
 
-            {/* Load More Button - Desktop 
-            <div className="flex justify-center mt-12">
-                <button className="bg-gradient-to-r from-background-800 to-background-700 border-2 border-border-gold text-text-50 py-4 px-8 rounded-2xl font-body font-semibold hover:from-background-700 hover:to-background-600 hover:border-text-gold hover:text-text-gold transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-border-gold/20">
-                    Lihat Semua Project
-                </button>
-            </div>*/}
         </div>
     </div>
 </div>

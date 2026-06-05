@@ -1,10 +1,14 @@
 import Link from 'next/link'
-import { getPostBySlug, getPublishedPosts } from '@/lib/posts'
+import { remark } from 'remark'
+import html from 'remark-html'
 import { notFound } from 'next/navigation'
+import { getPostBySlug, getPostSlugs } from '@/lib/sanity/queries'
+
+export const revalidate = 60
 
 export async function generateStaticParams() {
-  const posts = getPublishedPosts()
-  return posts.map(p => ({ slug: p.slug }))
+  const slugs = await getPostSlugs()
+  return slugs.map((slug) => ({ slug }))
 }
 
 export async function generateMetadata({ params }) {
@@ -14,10 +18,17 @@ export async function generateMetadata({ params }) {
   return { title: `${post.title} — Ifrad Dev`, description: post.excerpt }
 }
 
+async function markdownToHtml(md) {
+  const processed = await remark().use(html).process(md || '')
+  return processed.toString()
+}
+
 export default async function PostPage({ params }) {
   const { slug } = await params
   const post = await getPostBySlug(slug)
   if (!post) notFound()
+
+  const contentHtml = await markdownToHtml(post.body)
 
   return (
     <main className="min-h-screen bg-background-950 py-20 px-5 sm:px-8 lg:px-16 relative overflow-hidden">
@@ -58,7 +69,7 @@ export default async function PostPage({ params }) {
           </h1>
 
           <p className="font-body text-text-400 text-sm">
-            {new Date(post.date).toLocaleDateString('id-ID', {
+            {new Date(post.publishedAt).toLocaleDateString('id-ID', {
               day: 'numeric', month: 'long', year: 'numeric'
             })}
           </p>
@@ -69,7 +80,7 @@ export default async function PostPage({ params }) {
         {/* Content */}
         <article
           className="prose-custom font-body"
-          dangerouslySetInnerHTML={{ __html: post.contentHtml }}
+          dangerouslySetInnerHTML={{ __html: contentHtml }}
           style={{
             color: '#e0d9c4',
             lineHeight: '1.8',

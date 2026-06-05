@@ -4,8 +4,10 @@ import { useEffect, useState } from "react";
 import Image from 'next/image';
 import texture1 from './assets/durve2.png';
 import fotoTes from './assets/fototes.jpeg';
+import { waLink } from './lib/sanity/contact.helpers';
 
-const HeroSection = () => {
+const HeroSection = ({ contact }) => {
+    const ctaHref = waLink(contact);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
     useEffect(() => {
@@ -27,13 +29,14 @@ const HeroSection = () => {
     return (
         <section className="relative min-h-screen overflow-hidden">
             {/* Background Texture */}
-            <div 
-                className="absolute inset-0 rotate-55 opacity-40"
-                style={{ 
-                    backgroundImage: `url(${texture1})`,
+            <div
+                className="absolute inset-0 opacity-40"
+                style={{
+                    backgroundImage: `url(${texture1.src})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat'
+                    backgroundRepeat: 'no-repeat',
+                    transform: 'rotate(55deg)',
                 }}
             />
             
@@ -45,13 +48,16 @@ const HeroSection = () => {
 
             
             <h1 className="font-bold pb-2 text-5xl sm:text-6xl md:text-7xl text-left font-body mb-2 sm:mb-3 md:mb-4 z-[1] leading-tight">
-               Aku <span className='text-yellow-500'>Ifrad</span><span className='block text-3xl sm:text-xl mt-2 text-white/90 font-header'>Front-End Developer & WhatsApp Automation Builder</span>
+               Aku <span className='text-yellow-500'>Ifrad</span><p className='block text-3xl sm:text-xl text-white/90 m-0 font-header'>Front-End Developer & WhatsApp Automation Builder</p>
             </h1>
             
-            <img 
-                src={fotoTes} 
-                alt="Hero image" 
-                className="w-full mb-4 max-w-sm sm:max-w-md md:max-w-lg mb- h-auto object-cover rounded-lg z-[1] relative left-[20%] sm:left-[26%] object-right self-right" 
+            <Image
+                src={fotoTes}
+                alt="Ifrad - Front-End Developer"
+                placeholder="blur"
+                priority
+                sizes="(max-width: 640px) 90vw, 50vw"
+                className="w-full mb-10 max-w-sm sm:max-w-md md:max-w-lg h-auto object-cover rounded-lg z-[1] relative left-[20%] sm:left-[26%] object-right self-right"
             />
             
             <p className="text-lg sm:text-base text-white text-left font-body mt-2 sm:mt-4 md:mt-6 z-[1] leading-relaxed">
@@ -83,8 +89,8 @@ const HeroSection = () => {
                             </div>
                             
                             {/* 3. Single Strong CTA */}
-                            <a className="pt-4 relative" href='https://wa.me/6282260740023'>
-                               <button className="relative px-12 py-5 bg-background-800 text-white rounded-full font-semibold text-lg hover:bg-green-950 transition-all transform hover:scale-105 shadow-2xl group overflow-hidden" >
+                            <a className="pt-4 relative" href={ctaHref} target="_blank" rel="noreferrer">
+                               <button className="relative px-12 py-5 mt-12 bg-background-800 text-white rounded-full font-semibold text-lg hover:bg-green-950 transition-all transform hover:scale-105 shadow-2xl group overflow-hidden" >
                                     💬 Mulai Konsultasi Gratis
                                     <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-green-950 to-green-500 group-hover:w-full transition-all duration-300"></div>
                                     <div className="absolute top-1/2 right-4 transform -translate-y-1/2 w-0 h-0 border-y-[8px] border-l-[12px] border-y-transparent border-l-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -94,9 +100,12 @@ const HeroSection = () => {
                         
                         {/* 2. Hero Image - Clean */}
                         <div className="col-span-6 relative h-full flex items-center">
-                            <img 
-                                src={fotoTes} 
-                                alt="Ifrad - Front-End Developer" 
+                            <Image
+                                src={fotoTes}
+                                alt="Ifrad - Front-End Developer"
+                                placeholder="blur"
+                                priority
+                                sizes="(min-width: 1280px) 24rem, 20rem"
                                 className="w-80 xl:w-96 h-96 xl:h-[480px] object-cover rounded-2xl shadow-2xl relative left-[20%] xl:left-[25%] object-right"
                             />
                         </div>
@@ -111,5 +120,6 @@ const HeroSection = () => {
         </section>
     );
 };
+
 
 export default HeroSection;

@@ -1,7 +1,7 @@
 'use client'
 
 import {ProjectsIcon, ContactIcon, HomeIcon, BurgerIcon, AboutIcon, SkillsIcon, BlogIcon, TestimonialIcon, LampIcon } from './component/Icon.jsx'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Togglebutton from './component/toggleButton.jsx'
 import Link from 'next/link'
 
@@ -10,43 +10,31 @@ const Navbar = () => {
     const [isSecondPage, setSecondPage] = useState(false)
     const [isMobile, setIsMobile] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
-    
+    const navRef = useRef(null)
+
     const handleToggle = () => {
-        setSecondPage(!isSecondPage)     
+        setSecondPage(!isSecondPage)
     }
 
     useEffect(() => {
-        const handleClick = (e) => {
-            const blacklist = ['.navbar', '.sidebar', 'button', '.video', '.ignore'];
-            const isBlacklisted = blacklist.some(selector => 
-                e.target.closest(selector)
-            );
-            
-            if (!isBlacklisted) {
-                setIsOpen(prev => !prev);
+        if (!isOpen) return
+        const handleClickOutside = (e) => {
+            if (navRef.current && !navRef.current.contains(e.target)) {
+                setIsOpen(false)
             }
-        };
-
-        document.body.addEventListener('click', handleClick);
-        return () => document.body.removeEventListener('click', handleClick);
-    }, []);
-
-    useEffect(() => {
-        if (isOpen) {
-            const timer = setTimeout(() => setIsOpen(false), 15000);
-            return () => clearTimeout(timer);
         }
-    }, [isOpen]);
+        document.addEventListener('mousedown', handleClickOutside)
+        return () => document.removeEventListener('mousedown', handleClickOutside)
+    }, [isOpen])
 
-    // Detect screen size
     useEffect(() => {
         const checkScreenSize = () => {
             setIsMobile(window.innerWidth < 768)
         }
-        
+
         checkScreenSize()
         window.addEventListener('resize', checkScreenSize)
-        
+
         return () => window.removeEventListener('resize', checkScreenSize)
     }, [])
 
@@ -54,7 +42,18 @@ const Navbar = () => {
     if (isMobile) {
         return (
             <>
-            <nav className={`${isOpen ? 'translate-x-0' : 'translate-x-[100%]'} transform transition-transform duration-300 ease-in-out fixed bottom-[-1px] right-[-1px] h-auto z-20 w-18 p-0 text-text-100 rounded-tl-3xl bg-background-900/70 pt-2`}>
+            {/* Floating opener — visible only when nav is closed */}
+            <button
+                type="button"
+                aria-label="Buka menu"
+                aria-expanded={isOpen}
+                onClick={() => setIsOpen(true)}
+                className={`${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'} fixed bottom-4 right-4 z-30 w-12 h-12 flex items-center justify-center rounded-full bg-background-900/90 text-text-100 shadow-lg backdrop-blur-sm border border-background-700 transition-opacity duration-200`}
+            >
+                <BurgerIcon className="w-6 h-6" />
+            </button>
+
+            <nav ref={navRef} className={`${isOpen ? 'translate-x-0' : 'translate-x-[100%]'} transform transition-transform duration-300 ease-in-out fixed bottom-[-1px] right-[-1px] h-auto z-20 w-18 p-0 text-text-100 rounded-tl-3xl bg-background-900/70 pt-2`}>
                 <div className="flex flex-col justify-center space-y-4 text-center pb-2">
                     <button onClick={handleToggle} className="p-2">
                         <Togglebutton isToggled={isSecondPage} />

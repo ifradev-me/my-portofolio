@@ -1,42 +1,43 @@
 import Image from 'next/image';
+import { urlFor } from './lib/sanity/image';
+import { waLink } from './lib/sanity/contact.helpers';
 
-const LayananSection = () => {
-  const userTotal = 100;
+const ACCENT_STYLES = {
+  gold: {
+    accentClass: 'text-primary-gold-600',
+    borderHover: 'hover:border-primary-gold-400',
+    tagClass: 'text-primary-gold-700 border-primary-gold-300 bg-primary-gold-50',
+    pillClass: 'text-primary-gold-700 border-primary-gold-300 bg-primary-gold-50',
+    ctaClass: 'bg-primary-gold-500 hover:bg-primary-gold-400 text-primary-blue-800',
+  },
+  blue: {
+    accentClass: 'text-primary-blue-600',
+    borderHover: 'hover:border-primary-blue-400',
+    tagClass: 'text-primary-blue-700 border-primary-blue-300 bg-primary-blue-50',
+    pillClass: 'text-primary-blue-700 border-primary-blue-300 bg-primary-blue-50',
+    ctaClass: 'bg-primary-blue text-background-50 hover:bg-primary-blue-700',
+  },
+}
 
-  const layananData = [
-    {
-      id: 1,
+const LayananSection = ({ services = [], contact }) => {
+  const userTotal = 20;
+  const defaultCta = waLink(contact);
+
+  const layananData = services.map((s) => {
+    const styles = ACCENT_STYLES[s.accent] || ACCENT_STYLES.gold
+    return {
+      id: s._id,
       userTotal,
-      img: "/webdev.png",
-      title: "Jasa Pembuatan Website",
-      tag: "Web Development",
-      emoji: "🌐",
-      features: ["Landing Page", "Portfolio", "Toko Online", "Company Profile"],
-      accentClass: "text-primary-gold-600",
-      borderHover: "hover:border-primary-gold-400",
-      tagClass: "text-primary-gold-700 border-primary-gold-300 bg-primary-gold-50",
-      pillClass: "text-primary-gold-700 border-primary-gold-300 bg-primary-gold-50",
-      ctaClass: "bg-primary-gold-500 hover:bg-primary-gold-400 text-primary-blue-800",
-      description:
-        "Website profesional, cepat, dan mudah dikelola bahkan tanpa pengalaman teknis. Ifrad Dev tidak hanya membangun, tapi juga membuatmu paham cara memanfaatkannya.",
-    },
-    {
-      id: 2,
-      userTotal,
-      img: "/automation.jpeg",
-      title: "Jasa Otomatisasi CS",
-      tag: "WhatsApp Bot",
-      emoji: "🤖",
-      features: ["Auto-Reply", "Catat Pesanan", "Pengingat Otomatis", "Multi-Agent"],
-      accentClass: "text-primary-blue-600",
-      borderHover: "hover:border-primary-blue-400",
-      tagClass: "text-primary-blue-700 border-primary-blue-300 bg-primary-blue-50",
-      pillClass: "text-primary-blue-700 border-primary-blue-300 bg-primary-blue-50",
-      ctaClass: "bg-primary-blue text-background-50 hover:bg-primary-blue-700",
-      description:
-        "Bot kami membantu UMKM meningkatkan pelayanan tanpa nambah karyawan — dengan auto-reply, pencatatan pesanan, dan pengingat otomatis yang langsung siap pakai.",
-    },
-  ];
+      img: s.image,
+      title: s.title,
+      tag: s.tag,
+      emoji: s.emoji,
+      features: s.features || [],
+      description: s.description,
+      ctaHref: s.ctaHref || defaultCta,
+      ...styles,
+    }
+  })
 
   return (
     <section className="relative min-h-screen py-24 px-5 sm:px-8 lg:px-16 overflow-hidden bg-background-50">
@@ -81,6 +82,9 @@ const LayananSection = () => {
         </div>
 
         {/* Cards */}
+        {layananData.length === 0 ? (
+          <p className="text-center font-body text-text-500 italic">Belum ada layanan. Tambahkan dari Studio.</p>
+        ) : (
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {layananData.map((l) => (
             <div
@@ -91,12 +95,15 @@ const LayananSection = () => {
             >
               {/* Image */}
               <div className="relative h-52 overflow-hidden">
-                <Image
-                  src={l.img}
-                  alt={l.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
+                {l.img && (
+                  <Image
+                    src={urlFor(l.img).width(800).auto('format').url()}
+                    alt={l.title}
+                    fill
+                    sizes="(min-width: 768px) 400px, 100vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                )}
                 {/* Gradient overlay */}
                 <div className="absolute inset-0"
                   style={{ background: 'linear-gradient(to bottom, transparent 40%, rgba(255,255,255,0.95) 100%)' }} />
@@ -143,7 +150,7 @@ const LayananSection = () => {
                       Klien Puas
                     </div>
                   </div>
-                  <a href="https://wa.me/6282260740023" target="_blank" rel="noreferrer" className="flex-1">
+                  <a href={l.ctaHref} target="_blank" rel="noreferrer" className="flex-1">
                     <button className={`w-full py-3 rounded-xl font-body font-bold text-sm
                       transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ${l.ctaClass}`}>
                       Konsultasi Gratis →
@@ -154,13 +161,14 @@ const LayananSection = () => {
             </div>
           ))}
         </div>
+        )}
 
         {/* Bottom strip */}
         <div className="mt-14 text-center">
           <div className="inline-flex items-center gap-4 p-4 rounded-2xl
             bg-white border border-primary-gold-200 shadow-sm">
             <span className="font-body text-text-500 text-sm">Tidak yakin butuh apa?</span>
-            <a href="https://wa.me/6282260740023" target="_blank" rel="noreferrer">
+            <a href={defaultCta} target="_blank" rel="noreferrer">
               <button className="font-body text-sm font-bold px-5 py-2.5 rounded-xl
                 bg-primary-blue text-background-50 hover:bg-primary-blue-700
                 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300">

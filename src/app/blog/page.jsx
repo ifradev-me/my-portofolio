@@ -1,13 +1,15 @@
 import Link from 'next/link'
-import { getPublishedPosts } from '@/lib/posts'
+import { getPosts } from '@/lib/sanity/queries'
 
 export const metadata = {
   title: 'Blog — Ifrad Dev',
   description: 'Tips web development, WhatsApp automation, dan teknologi untuk UMKM',
 }
 
-export default function BlogPage() {
-  const posts = getPublishedPosts()
+export const revalidate = 60
+
+export default async function BlogPage() {
+  const posts = await getPosts()
 
   return (
     <main className="min-h-screen bg-background-50 py-20 px-5 sm:px-8 lg:px-16 relative overflow-hidden">
@@ -82,7 +84,7 @@ export default function BlogPage() {
 
                   <div className="flex items-center justify-between">
                     <span className="font-body text-text-400 text-xs">
-                      {new Date(post.date).toLocaleDateString('id-ID', {
+                      {new Date(post.publishedAt).toLocaleDateString('id-ID', {
                         day: 'numeric', month: 'long', year: 'numeric'
                       })}
                     </span>

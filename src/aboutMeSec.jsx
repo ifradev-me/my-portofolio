@@ -77,11 +77,15 @@ const AboutMeSection = () => {
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-3 pt-2">
               <button
+                type="button"
+                disabled
+                aria-disabled="true"
+                title="Segera hadir"
                 className="btn-disabled font-body font-bold text-sm px-7 py-3 rounded-xl
                   bg-primary-gold-800 text-background-950
                   transition-all duration-300"
               >
-                Download CV
+                Download CV <span className="opacity-70 font-normal">(segera)</span>
               </button>
               <Link href="/blog">
                 <button className="font-body font-semibold text-sm px-7 py-3 rounded-xl
